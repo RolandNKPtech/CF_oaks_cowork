@@ -1,0 +1,118 @@
+---
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { SITE } from "../lib/constants";
+import { CATEGORIES_TOP, CATEGORIES_BOTTOM } from "../lib/categories";
+
+export const prerender = true;
+
+const title = "Dr. Danielle Andry | Board-Certified Plastic Surgeon Houston";
+const description = "Dr. Danielle Andry is a board-certified plastic surgeon at The Oaks Plastic Surgery in Houston, TX specializing in Mommy Makeover, breast augmentation, and vaginal rejuvenation.";
+const canonical = "https://theoaksplasticsurgery.com/drdanielleandry";
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonical}
+  headerTitle=""
+  headerImage="/img/header-contact-us.png"
+  headerMarginBottom={0}
+>
+  <!-- Bio Intro Section -->
+  <section class="bio-intro">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 mx-auto">
+          <div class="row">
+            <div class="col-md-6 text-center image-block">
+              <img src="/img/dani-transparent.png" alt="Dr. Danielle Andry" class="main img-fluid" />
+            </div>
+            <div class="col-md-6 content-block">
+              <h1>Dr. Danielle Andry</h1>
+              <p class="sub-text">Board-Certified Plastic Surgeon</p>
+              <p>Dr. Danielle Andry, one of the few female partners of a plastic surgery group practice in Houston, Texas, is a native of Baton Rouge, Louisiana and attended Louisiana State University. It was in medical school where she first became a Texan at the University of Texas at Southwestern in Dallas, Texas. She was then brought south to Houston to live with her husband, Dr. Nandi Wijay, another founding member of The Oaks Plastic Surgery. Being a mother herself and a strong women's advocate, she has a special interest in Mommy Makeover, including breast lifts (mastopexy), breast augmentation, liposuction and tummy tuck (abdominoplasty), as well as vaginal rejuvenation procedures, breast reduction, and breast reconstruction after breast cancer.</p>
+              <div class="social-links">
+                <span>Follow me on:</span>
+                <a href="https://www.instagram.com/drdanielleandry/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/Dr-Danielle-Andry-650955728614107/" target="_blank"><i class="fab fa-facebook"></i></a>
+              </div>
+              <a class="btn btn-primary btn-main" href="/contact-us">Schedule A Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After Gallery — will be powered by D1 in Step 6 -->
+
+  <!-- Testimonials — will be powered by D1 reviews -->
+
+  <!-- Videos Section -->
+  <section class="home-about">
+    <div class="container">
+      <div class="row">
+        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+          <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="text-center py-4">
+        <a href="https://www.youtube.com/playlist?list=PL-GKFU1ibgS1UlE4ErZi5NfCi7thVSYbC" target="_blank" class="btn btn-primary btn-main">View Dr. Andry's Videos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="text-section pb-240">
+    <div class="container">
+      <div class="row">
+        <h2 class="wow fadeInUp center text-center">About Dr. Danielle Andry</h2>
+      </div>
+    </div>
+    <div data-jarallax-element="-150" class="text-section-box"></div>
+    <div class="container">
+      <div class="row text-row">
+        <div class="col-lg-6">
+          <div class="text-section-block">
+            <h3>"...with an excellent aesthetic eye, exceptional surgical skills, and meticulous attention to detail"</h3>
+            <p>Dr. Danielle Andry was born and raised in Baton Rouge, Louisiana. She attended St. Joseph's Academy High School, a blue ribbon school of excellence. She went on to pursue a biological sciences degree at Louisiana State University, where she graduated summa cum laude on a full academic scholarship. She was then awarded a scholarship to the prestigious University of Texas Southwestern School of Medicine in Dallas, Texas where she completed her medical doctorate. It was there that she found her passion for plastic surgery. While at UT Southwestern, she spent designated time with innovators in plastic surgery performing research and observing innovative plastic surgery techniques. Even as a medical student, she was praised by her surgical professors for demonstrating exceptional operative technique and clinical decision making and was noted to be a rising star in the plastic surgery community.</p>
+            <p>After obtaining her medical degree, she began her training in plastic surgery at the University of Kansas Medical Center where she trained with specialists in breast reconstruction and aesthetic plastic surgery. She then moved to Houston, Texas to complete her plastic surgery residency with her husband at the University of Texas Medical Branch in Galveston, Texas. During her training at UTMB, she trained with innovators in body contouring, aesthetics, and general plastic surgery in both Galveston and Houston.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 pt-lg-5">
+          <div class="text-section-block">
+            <p>She also received training at the world-renowned MD Anderson Cancer Center for microsurgery and breast reconstruction, St. Joseph's Medical Center for cosmetic surgery, Shriner's Children's Hospital for pediatric plastic surgery, and several aesthetic practices in the Houston area to refine her cosmetic surgery skills. During these years, she elevated her surgical skills and developed an special interest in aesthetic and reconstructive breast surgery, vaginal rejuvenation, and body contouring procedures. Her mentors consistently evaluated her as being one of the top plastic surgery trainees with an excellent aesthetic eye, exceptional surgical skills, and meticulous attention to detail.</p>
+            <p>After completing her residency, she became one of the few women to start her own plastic surgery practice, The Oaks Plastic Surgery, in the heart of Houston, Texas. As a Houston female Board-Certified Plastic Surgeon, her mission is to serve the cosmetic and reconstructive needs of the people of Houston and surrounding areas with a personalized, high-end experience for each of her patients. Dr. Andry's commitment to excellence can be seen in her attention to detail, care for her patients, and surgical results. She wants every patient experience to be exceptional and goes the extra mile to ensure her patients have the best possible results.</p>
+            <p>Although she enjoys many areas of both aesthetic and reconstructive surgery, as a mother, she most enjoys helping women restore their bodies after childbirth through breast lift, abdominoplasty, and vaginal rejuvenation. She is also an advocate of fit and healthy lifestyles and enjoys helping patients complete their massive weight loss journeys through body contouring procedures. She enjoys fitness and yoga, as well as spending time with her husband, daughter, family, and friends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing tool — will be implemented in Step 8 -->
+
+  <!-- Q&A section — will be powered by D1 forum data -->
+
+  <!-- Blog posts — will be powered by content collections -->
+
+  <!-- Category Grids -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_BOTTOM} />
+      </div>
+    </div>
+  </section>
+</Base>

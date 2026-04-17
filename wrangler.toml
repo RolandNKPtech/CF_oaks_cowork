@@ -1,0 +1,27 @@
+name = "oaks-plastic-surgery"
+compatibility_date = "2026-04-17"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+binding = "ASSETS"
+directory = "./dist"
+not_found_handling = "404-page"
+
+# --- D1 Database ---
+[[d1_databases]]
+binding = "DB"
+database_name = "oaks-db"
+database_id = "TO_BE_CREATED"
+
+# --- R2 Object Storage (gallery images, media) ---
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "oaks-media"
+
+# --- KV Namespace (sessions, cache) ---
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "TO_BE_CREATED"
+
+[observability]
+enabled = true

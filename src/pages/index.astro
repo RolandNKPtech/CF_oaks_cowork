@@ -1,0 +1,379 @@
+---
+// Homepage — The Oaks Plastic Surgery
+// Ported from: /oaks_site/index.php (complete — all sections)
+export const prerender = true;
+
+import HomeLayout from "../layouts/HomeLayout.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import GallerySlider from "../components/GallerySlider.astro";
+import ForumCarousel from "../components/ForumCarousel.astro";
+import { CATEGORIES_TOP, CATEGORIES_BOTTOM } from "../lib/categories";
+import { STAFF_SECTIONS } from "../lib/staff";
+import { SITE } from "../lib/constants";
+---
+
+<HomeLayout
+  title="Houston Plastic & Cosmetic Surgeons | The Oaks Plastic Surgery"
+  description="The Oaks Plastic Surgery (TOPS) is a premier plastic surgery practice in Houston, Texas. We focus on patient safety, comfort & an acute attention to detail."
+  canonical="https://theoaksplasticsurgery.com/"
+>
+  <!-- Doctor Info: Dr. Danielle Andry -->
+  <section class="doctor-info-block mt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="text-center img-block">
+              <img src="/img/dani-transparent.png" alt="Dr. Danielle Andry" class="img-fluid" />
+            </div>
+            <div class="content-block">
+              <h2>Dr. Danielle Andry</h2>
+              <p class="sub-text">Board-Certified Plastic Surgeon</p>
+              <p>
+                Dr. Danielle Andry, one of the few female partners of a plastic surgery group practice in Houston, Texas, is a native of Baton Rouge, Louisiana and attended Louisiana State University. It was in medical school where she first became a Texan at the University of Texas at Southwestern in Dallas, Texas. She was then brought south to Houston to live with her husband, Dr. Nandi Wijay, another founding member of The Oaks Plastic Surgery. Being a mother herself and a strong women's advocate, she has a special interest in Mommy Makeover, including breast lifts (mastopexy), breast augmentation, liposuction and tummy tuck (abdominoplasty), as well as vaginal rejuvenation procedures, breast reduction, and breast reconstruction after breast cancer.
+              </p>
+            </div>
+            <div class="links">
+              <a href="/drdanielleandry" class="btn btn-primary btn-main">Learn More</a>
+              <a href="/drdanielleandry#gallery" class="btn btn-primary btn-main">View Gallery</a>
+              <a href="/contact-us" class="btn btn-primary btn-main">Schedule Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Info: Dr. Nandi Wijay -->
+  <section class="doctor-info-block doctor-info-block--flipped">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="content-block">
+              <h2>Dr. Nandi Wijay</h2>
+              <p class="sub-text">Division Chief of Plastic Surgery, River Oaks Hospital</p>
+              <p>
+                A Houston native, Dr. Nandi Wijay specializes in cosmetic surgery, including tummy tucks, breast augmentation, and hair restoration. His training at UTMB Health and Houston's top medical centers shaped his expertise in advanced surgical techniques. Patients appreciate his compassionate approach and commitment to safety, personalization, and lasting results.
+              </p>
+            </div>
+            <div class="links">
+              <a href="/nandi-wijay-houston" class="btn btn-primary btn-main">Learn More</a>
+              <a href="/nandi-wijay-houston#gallery" class="btn btn-primary btn-main">View Gallery</a>
+              <a href="/contact-us" class="btn btn-primary btn-main">Schedule Now</a>
+            </div>
+            <div class="text-center img-block">
+              <img src="/img/nandi-transparent.png" alt="Dr. Nandi Wijay" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Info: Dr. Tareq Sawan -->
+  <section class="doctor-info-block mb-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="text-center img-block">
+              <img src="/img/staff/plastic-surgeons/tareq-sawan/tareq-transparent.png" alt="Dr. Tareq Sawan" class="img-fluid" />
+            </div>
+            <div class="content-block">
+              <h2>Dr. Tareq Sawan</h2>
+              <p class="sub-text">Lead Facial Plastic Surgeon</p>
+              <p>
+                Dr. Tareq Sawan is a highly skilled facial plastic surgeon specializing in cosmetic and reconstructive procedures for the face, neck, nose, eyelids, eyebrows, and ears. With top-tier education from the University of St. Andrews School of Medicine and Yale School of Medicine, he excelled academically and clinically, earning prestigious awards. Collaborating with renowned facial plastic surgeon Dr. Neil Gordon, Sawan contributed to advancements in facelift surgery. He further refined his expertise through a fellowship at the American Academy of Facial Plastic and Reconstructive Surgery. Dr. Sawan is dedicated to providing detailed, compassionate patient care and meticulous surgical techniques. He strives for natural-looking results that align with each patient's desires and expectations.
+              </p>
+            </div>
+            <div class="links">
+              <a href="https://www.elitedermatology.com/provider/tareq-sawan-md/" target="_blank" class="btn btn-primary btn-main">Learn More</a>
+              <a href="/contact-us" class="btn btn-primary btn-main">Schedule Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premier Section -->
+  <section class="collapse-category">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="text-center center text-h-mort wow fadeInUp">A premier plastic surgery practice in houston</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breast Augmentation -->
+  <section class="category-info-block category-info-block--flipped">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="col-xl-7 col-lg-6">
+              <h2>Breast Augmentation in Houston, TX</h2>
+              <p>
+                Breast Augmentation can enhance the size and shape of your breasts. Breast augmentation is among one of the most popular cosmetic procedures performed in the United States and in Houston, Texas. The plastic surgeons at The Oaks Plastic Surgery (TOPS), Dr. Danielle Andry and Dr. Nandi Wijay are committed to individualizing breast augmentation to fit your particular desires and goals.
+              </p>
+              <div class="links">
+                <a href="/breast-augmentation-houston#pricing" class="btn btn-primary btn-main">Pricing</a>
+                <a href="/breast-augmentation-houston#tops-girls" class="btn btn-primary btn-main">Meet the TOPS Girls</a>
+                <a href="/breast-augmentation-houston#doctors" class="btn btn-primary btn-main">Meet the Doctors</a>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-6">
+              <video src="/img/breast-aug.mp4" muted loop autoplay playsinline></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tummy Tuck -->
+  <section class="category-info-block">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="col-xl-5 col-lg-6">
+              <video src="/img/tummy.mp4" muted loop autoplay playsinline></video>
+            </div>
+            <div class="col-xl-7 col-lg-6">
+              <h2>Tummy Tuck in Houston, TX</h2>
+              <p>
+                A Tummy Tuck (Abdominoplasty) can help restore abdominal contours after childbirth or weight loss/weight gain. This procedure removes excess abdominal tissue of the lower abdomen, tightens abdominal muscles, and is often performed with liposuction of the abdomen and love handles to help achieve an hourglass figure. Tummy Tuck is a very popular procedure in Houston, Texas and one of the most common procedures performed by the plastic surgeons at The Oaks Plastic Surgery (TOPS), Dr. Danielle Andry and Dr. Nandi Wijay.
+              </p>
+              <div class="links">
+                <a href="/houston-tummy-tucks#pricing" class="btn btn-primary btn-main">Pricing</a>
+                <a href="/houston-tummy-tucks" class="btn btn-primary btn-main">Learn More</a>
+                <a href="/houston-tummy-tucks#doctors" class="btn btn-primary btn-main">Meet the Doctors</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Labiaplasty -->
+  <section class="category-info-block category-info-block--flipped">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="col-xl-7 col-lg-6">
+              <h2>Labiaplasty / Vaginal Rejuvenation in Houston, TX</h2>
+              <p>
+                Labiaplasty is surgical reduction of the labia minora or inner skin that covers the clitoris and vaginal opening. This can be performed for both cosmetic and reconstructive reasons. Our plastic surgeons at The Oaks Plastic Surgery (TOPS) perform Labiaplasty under local anesthetic or general anesthetic depending on the patient's comfort. During your consultation, your TOPS plastic surgeon will discuss your goals as far as the functional improvements and appearance you are looking for. From there, your plastic surgeon will determine if you are a candidate for what is termed a "wedge resection" Labiaplasty which results in a more natural appearing labia minora or a "trim" Labiaplasty, which results in a cleaner, but more dramatic change in appearance. Your plastic surgeon will also determine if you require clitoral hood reduction, which may improve stimulation during intercourse.
+              </p>
+              <div class="links">
+                <a href="/labiaplasty-houston" class="btn btn-primary btn-main">Learn More</a>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-6">
+              <img src="/img/labiaplasty-home.jpg" alt="woman fit lower body" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mommy Makeover -->
+  <section class="category-info-block">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="col-xl-5 col-lg-6">
+              <video src="/img/mommy-makeover.mp4" muted loop autoplay playsinline></video>
+            </div>
+            <div class="col-xl-7 col-lg-6">
+              <h2>Mommy Makeover in Houston, TX</h2>
+              <p>
+                Mommy Makeover is a collection of procedures typically performed after a woman is done having children and ready to do something for herself to get her body back. While diet and exercise are very important for a healthy, active mother, the plastic surgeons at The Oaks Plastic Surgery understand that not everything that changes after pregnancy can be fixed at the gym or by dieting.
+              </p>
+              <div class="links">
+                <a href="/mommy-makeover-houston#pricing" class="btn btn-primary btn-main">Pricing</a>
+                <a href="/mommy-makeover-houston" class="btn btn-primary btn-main">Learn More</a>
+                <a href="/mommy-makeover-houston#doctors" class="btn btn-primary btn-main">Meet the Doctors</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amazon Products -->
+  <section class="category-info-block category-info-block--flipped">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="col-xl-7 col-lg-6">
+              <h2>Dr. Andry Post-Op Recommended Amazon Products</h2>
+              <p>
+                Dr. Andry has hand selected post-op products that have worked best for her patients. Click the link below to pick which items work best for your procedure.
+              </p>
+              <div class="links">
+                <a class="btn btn-primary btn-main d-inline-flex align-items-center justify-content-center" href="https://amzn.to/3Z6wg8Y" target="_blank">
+                  <i class="fab h4 fa-amazon pr-2 mb-0"></i>Buy Now
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-5 col-lg-6">
+              <img src="/img/amazon-shop/thumbnail-square.jpg" alt="beautiful woman wearing endorsed garment" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ask a Question -->
+  <section class="ask-question-banner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h2 class="text-h-mort">Ask a Question</h2>
+          <p>Get personalized answers to your questions and discover if this procedure is right for you.</p>
+          <a class="btn btn-primary btn-main" href="/forum/">Ask Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Before & After Gallery -->
+  <GallerySlider limit={6} title="Featured Before & After Results" />
+
+  <!-- Recent Q&A -->
+  <ForumCarousel limit={5} title="Recent Questions & Answers" />
+
+  <!-- Category Grid: Face, Breast, Body, Injectables -->
+  <section class="collapse-category">
+    <div class="container-fluid">
+      <div class="row" id="menu-cat4">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Video + About Section -->
+  <section class="home-page-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="video-box">
+            <img src="/img/home-video-bg.jpg" alt="Dr. Wijay and Dr. Andry video thumbnail" />
+            <a class="video-play-button" href="https://www.youtube.com/watch?v=9JQitcqfj6E" data-lity>
+              <i class="fas fa-play"></i>
+            </a>
+            <a class="video-box-cta d-none d-md-block" href={`tel:${SITE.phone}`}>
+              <span>Call us to book a consult</span>
+              {SITE.phone}
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 text-block">
+          <h2>A Premier Plastic Surgery Practice In Houston</h2>
+          <p>
+            The Oaks Plastic Surgery is a premier plastic surgery practice planted in the heart of Houston, Texas. With a primary office based in the high-end Museum District of Houston, Texas, the plastic surgeons at The Oaks Plastic Surgery (TOPS) offer a variety of both cosmetic and reconstructive surgery services for patients in Houston, The Woodlands, Katy, Humble, Sugar Land, Pearland, Clear Lake, and other surrounding areas. Along with plastic surgery procedures, the plastic surgeons at The Oaks Plastic Surgery also offer a variety of non-surgical cosmetic services including <a href="/houston-botox">Botox</a>, <a href="/houston-botox">Dysport</a>, Juvederm, Restalyne, and <a href="/fillers-houston">other fillers</a>. Through their prestigious affiliation with Memorial Hermann and Texas Oncology, the plastic surgeons at The Oaks Plastic Surgery offer <a href="/breast-reconstruction-houston">complete breast reconstructive care</a> for their patients in Houston, The Woodlands, Katy, and Humble, Texas.
+          </p>
+        </div>
+        <a class="video-box-cta d-block d-md-none" href={`tel:${SITE.phone}`}>
+          <span>Call us to book a consult</span>
+          {SITE.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials placeholder — will be dynamic from D1 in Step 6 -->
+  <section class="collapse-category">
+    <div class="container testimonial-carousel">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="testimonial-stars">
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+            <span class="fas fa-star"></span>
+          </div>
+          <div class="testimonial-title">What Clients Say</div>
+          <!-- Testimonial carousel will be powered by D1 reviews data -->
+          <p class="text-center">Patient testimonials coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Grid: Reconstruction, Male, All-in-One -->
+  <section>
+    <div class="container-fluid">
+      <div class="row" id="menu-cat3">
+        <CategoryGrid categories={CATEGORIES_BOTTOM} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos Section -->
+  <section class="home-about">
+    <div class="container">
+      <div class="row">
+        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+          <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <!-- YouTube playlist carousel — will be implemented with client-side JS in Step 8 -->
+      <div class="text-center py-4">
+        <a href="https://www.youtube.com/playlist?list=PL-GKFU1ibgS0WXxP8zFack1peultV4rC-" target="_blank" class="btn btn-primary btn-main">View Our YouTube Channel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Grid -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="staff-grid">
+              {STAFF_SECTIONS.map((section) => (
+                <>
+                  <h2 class="staff-grid-header text-center text-h-mort">{section.header}</h2>
+                  {section.members.map((staff) => (
+                    <div class="staff-grid-item">
+                      <div class="staff-item-img">
+                        <a href={staff.link} target="_blank">
+                          <img src={staff.img} alt={staff.title} />
+                        </a>
+                      </div>
+                      <div class="staff-item-desc">
+                        <a href={staff.link} target="_blank">
+                          <h3 class="text-h-mort">{staff.title}</h3>
+                        </a>
+                        <a href={staff.link} target="_blank">
+                          <p>{staff.subtitle}</p>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</HomeLayout>

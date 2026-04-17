@@ -1,0 +1,398 @@
+---
+// Breast Implant Removal in Houston, Texas
+// Ported from: breast-implant-removal.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Breast Implant Removal in Houston, Texas | The Oaks Plastic Surgery"
+  description="Breast Implant Removal in Houston, Texas at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Breast Implant Removal in Houston, Texas"
+  headerImage="/img/breast-implant-removal-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/breast-implant-removal"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">Do you have any of the following symptoms?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Breast pain" name="consult[option_one][]" />
+                                                    <span class="text">Breast pain</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Implants Too Heavy" name="consult[option_one][]" />
+                                                    <span class="text">Implants Too Heavy</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Capsular/ Scar Pain" name="consult[option_one][]" />
+                                                    <span class="text">Capsular/ Scar Pain</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Changes in Weight" name="consult[option_one][]" />
+                                                    <span class="text">Changes in Weight</span>
+                                                </label>
+                                                <input type="text" hidden value="Cup Size Wanted"
+                                                       name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Do you want a lift after implant removal?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid two-columns">
+                                                <label>
+                                                    <input type="radio" value="Yes" name="consult[option_two][]" />
+                                                    <span class="text">Yes</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No" name="consult[option_two][]" />
+                                                    <span class="text">No</span>
+                                                </label>
+<!--                                                <label>-->
+<!--                                                    <input type="radio" value="C" name="consult[option_two][]" />-->
+<!--                                                    <span class="text">C</span>-->
+<!--                                                </label>-->
+<!--                                                <label>-->
+<!--                                                    <input type="radio" value="D" name="consult[option_two][]" />-->
+<!--                                                    <span class="text">D</span>-->
+<!--                                                </label>-->
+                                                <input type="text" hidden value="Current Cup Size"
+                                                       name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book a consult</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input"
+                                                       placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book
+                                                    Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <!--
+                                                                <div class="tab-content" id="myTabContent">
+                                                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                                        <div class="plash-size-title">What size implants are you considering?</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                                        <div class="plash-size-title">Basic Information</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                                                        <div class="plash-size-title">3rd Slide</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-60 mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0">
+                            <div class="plash-tags-elements">
+                                <a href="#" class="plash-tags-el">butt lift PROCEDURE</a>
+                                <a href="#" class="plash-tags-el">butt lift RESULTS</a>
+                                <a href="#" class="plash-tags-el">VIDEO GALLERY</a>
+                                <a href="#" class="plash-tags-el">CONSULTATION: WHAT TO EXPECT</a>
+                                <a href="#" class="plash-tags-el">DAY OF: WHAT TO EXPECT</a>
+                                <a href="#" class="plash-tags-el">RECOVERY: WHAT TO EXPECT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            
+            
+            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="mt-60 mb-0" id="section-breast-aug">
+                <div class="container-fluid">
+                    <div class="row text-row">
+                        <div class="col-lg-10 offset-lg-1 no-padding ">
+                            <div class="plash-breast">
+                                <div class="breast-title">What is Breast Implant Removal</div>
+                                <div class="breast-text">
+                                    <p>Many cosmetic patients who have undergone breast implantation in the past choose to remove their breast implants for a variety of reasons. Unfortunately, removal of breast implants often isn’t as easy as simply removing the implant. Over time, the breast experiences changes due to the implant being in place. The body recognizes the implant as being a something foreign to the body and walls off the implant with a scar we call a capsule. Most of the time, this scar is thin and pliable; however, sometimes the scar can be thick and cause pain and distortion to the breast.</p>
+                                    <p>Additionally, breast tissue may deflate over time due to the constant pressure of the breast implant. Therefore, when the breast implant comes out, unless a patient has undergone weight gain, they are often left with less breast tissue than they had prior to the augmentation. With implant removal, patients require an incision through their previous augmentation scar. If the implant is intact, it is then removed. If the implant is ruptured, the implant casing as well at the implant material is completely removed and the tissues thoroughly cleansed. If the scar or capsule is problematic, it is also partially or fully removed with a procedure called a capsulectomy. A breast lift or implant replacement can then be performed depending on the patient’s desires.</p>
+                                </div>
+                                <div class="breast-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="collapse-category">
+                <div class="container-fluid book-free-consultation with-bg">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <h2>Book a Consultation</h2>
+                            <p>
+                                The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom trained and now practice in Houston, Texas. Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of the line care with a focus on safety, patient comfort, and meticulous attention to detail. The Oaks Plastic Surgery wants to help you look and feel like the best you!
+                            </p>
+                            <div class="book-consultation-form">
+                                
+                                <a href="/contact-us" class="d-inline-block d-lg-none btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="cta-service" id="section-consultation-expect">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 no-padding service-right-cta">
+                            <div data-jarallax-element="-100">
+                                <h2 class="text-h-mort">
+                                    What can you expect at your initial consultation at The Oaks Plastic Surgery in Houston, Texas
+                                </h2>
+                                <span>
+                                    If you are interested in breast implant removal in Houston, Texas, an appointment can be made with one of our TOPS plastic surgeons, Dr. Danielle Andry or Dr. Nandi Wijay. You can expect the initial consultation to last an hour or more. In your consultation, your plastic surgeon will:
+                                </span>
+                                <div class="performed-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 no-padding service-left-cta">
+                            <ul data-jarallax-element="-100">
+                                <li>
+                                    Listen to your specific complaints and goals
+                                </li>
+                                <li>
+                                    Perform a thorough examination, focusing on your individual anatomy. Precise measurements and photographs will be taken.
+                                </li>
+                                <li>
+                                    Depending on your goals, your plastic surgeon will discuss details of the surgical procedures that are offered and which approach is right for you. Details regarding scars and technique will be outlined for you.
+                                </li>
+                                <li>
+                                    The risks and benefits of Brazilian Butt Lift will be thoroughly outlined
+                                </li>
+                                <li>
+                                    You will be given ample opportunity to ask questions from both your plastic surgeon and our plastic surgery staff regarding buttock augmentation
+                                </li>
+                                <li>
+                                    You will be sent home with a packet of information regarding Brazilian Butt Lift including a detailed consent form and instructions for before and after your
+                                    Buttock Augmentation surgery in Houston, Texas.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="text-section text-bg-grey mb-0">
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6 " id="section-day-of-expect">
+                            <div class="text-section-block">
+                                <h3>What you can expect on the day of surgery</h3>
+                                <p>The day of your surgery, your TOPS plastic surgeon will meet you in the preoperative area to go over any last minute questions or concerns you may have. Your plastic surgeon will make preoperative markings and perform extensive checks with careful attention to detail, ensuring high quality care and safety. You will meet the anesthesiologist and their team, as well as the members of our plastic surgery operative team.</p>
+                                <p>During the breast implant removal procedure, our plastic surgeons pay meticulous attention to detail and work as a team to ensure a great result with a focus on safety and quality. Your family will be updated of your status periodically and will be able to talk with your plastic surgeon one-on-one after the breast implant removal procedure is completed.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 " id="section-recovery-expect">
+                            <div class="text-section-block">
+                                <h3>What can you expect for recovery after breast implant removal</h3>
+                                <p>
+                                    After your breast procedure, you will be placed in a special post-surgical bra or wrap. You will have a light dressing covering the incisions. Swelling is typical after surgery. You may shower 24 hrs after the procedure. The plastic surgeons at The Oaks Plastic Surgery employ a multimodal pain regimen to decrease or eliminate your need for narcotic pain medication, which allows our cosmetic patients to recover quickly and feel more like themselves soon after their cosmetic surgery procedure. Most of our patients are ready to go back to work within 1-2 weeks. Initially, our plastic surgeons and staff in Houston will see you or communicate with you daily to ensure proper healing. Most of the swelling begins to subside over the first week or two and typically resolves by 4-6 weeks. We advise that you refrain from strenuous activity or heavy lifting greater than 10 lbs for 4-6 weeks during the healing process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+                            <!--                            <a href="tel:--><!--">--><!--</a>-->
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="pb-240">
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                
+                    </div>
+            </section>
+
+            <section class="py-5">
+                <div class="container-fluid">
+                <h2 class="text-h-mort mb-5 text-center">Surgical Instructions</h2>
+                
+                </div>
+            </section>
+
+            <!-- <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section> -->
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

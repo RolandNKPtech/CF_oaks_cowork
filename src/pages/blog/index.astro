@@ -1,0 +1,93 @@
+---
+/**
+ * Blog listing page — shows all published posts from content collection.
+ */
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+export const prerender = true;
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+---
+
+<Base
+  title="Blog — The Oaks Plastic Surgery"
+  description="Stay informed with the latest articles on plastic surgery, cosmetic procedures, and body contouring from The Oaks Plastic Surgery in Houston, TX."
+  headerTitle="Blog"
+  headerImage="/images/banners/about-bg.jpg"
+>
+  <section class="container" style="padding: 60px 15px; max-width: 900px; margin: 0 auto;">
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <article class="blog-card">
+          {post.data.heroImage && (
+            <a href={`/blog/${post.data.slug}`}>
+              <img src={post.data.heroImage} alt={post.data.title} class="blog-thumb" loading="lazy" />
+            </a>
+          )}
+          <div class="blog-card-body">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h2>
+              <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+            </h2>
+            {post.data.description && <p>{post.data.description}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .blog-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+  .blog-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .blog-thumb {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .blog-card-body {
+    padding: 1.5rem;
+  }
+  .blog-card-body time {
+    font-size: 0.8125rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .blog-card-body h2 {
+    margin: 0.5rem 0;
+    font-size: 1.375rem;
+    line-height: 1.3;
+  }
+  .blog-card-body h2 a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  .blog-card-body h2 a:hover {
+    color: #2563eb;
+  }
+  .blog-card-body p {
+    color: #555;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+</style>

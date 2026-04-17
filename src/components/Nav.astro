@@ -1,0 +1,226 @@
+---
+import { SITE, INTERESTED_IN } from "../lib/constants";
+
+const currentPath = Astro.url.pathname;
+const interestedIn = INTERESTED_IN[currentPath] || "";
+const isGallery = currentPath.includes("tops-gallery") || currentPath.includes("gallery");
+---
+
+<div class="sm-bg d-md-none"></div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <a class="btn btn-menu text-left open-menu" onclick="showoverlay('mainmenu')">MENU</a>
+  <a href="/" class="navbar-brand m-auto">
+    <img src="/img/logo.png?9-01-2022" alt="tops" />
+  </a>
+
+  {isGallery ? (
+    <span class="btn btn-outline-light btn-call">
+      <a href={`tel:${SITE.phone}`}><i class="fal fa-phone"></i></a>
+      <a class="form-trigger" href="/contact-us">QUICK QUOTE</a>
+    </span>
+  ) : (
+    <span class="btn btn-outline-light btn-call">
+      <a href={`tel:${SITE.phone}`}><i class="fal fa-phone"></i></a>
+      <span class="form-trigger" onclick={`service_cta_popup('${interestedIn}')`}>QUICK QUOTE</span>
+    </span>
+  )}
+</nav>
+
+<!-- Overlay Navigation Menu -->
+<div class="overlay instapaper_ignore container-fluid new-menu" id="mainmenu">
+  <div class="row actions">
+    <div class="col-md-1">
+      <a class="btn btn-menu text-left close-menu" onclick="hideoverlay('mainmenu')">CLOSE</a>
+    </div>
+  </div>
+  <div class="row menu-row">
+    <div class="col">
+      <div class="menu-section text-center">
+        <ul class="main-menu active">
+          <li class="menu-group"><a href="/">Home</a></li>
+          <li class="menu-group"><a href="/gallery">Photo Gallery</a></li>
+          <li class="menu-group"><a href="#" class="overlay-button" data-target="OverlayMenu2">Plastic Surgery <span class="far fa-long-arrow-right"></span></a></li>
+          <li class="menu-group"><a href="https://www.elitedermatology.com/" target="_blank">Dermatology <span class="far fa-external-link"></span></a></li>
+          <li class="menu-group"><a href="https://www.elitehaircenters.com/" target="_blank">Hair Transplant <span class="far fa-external-link"></span></a></li>
+          <li class="menu-group"><a href="/virtual-consult">Virtual Consult</a></li>
+          <li class="menu-group"><a href="/natrelle-breast-visualizer">Natrelle 3D Breast Visualizer</a></li>
+          <li class="menu-group"><a href="#" class="overlay-button" data-target="OverlayMenu1">About Us <span class="far fa-long-arrow-right"></span></a></li>
+          <li class="menu-group"><a href="/patient-portal">Patient Portal</a></li>
+          <li class="menu-group"><a href="/leave-review">Leave a Review</a></li>
+          <li class="menu-group"><a href="/forum">Q&A</a></li>
+          <li class="menu-group"><a href="/blog">Blog</a></li>
+          <li class="menu-group"><a href="/financing">Financing</a></li>
+          <li class="menu-group d-none d-md-block"><a href="/cosmetic-surgery-houston">Cosmetic Surgery</a></li>
+          <li class="menu-group"><a href="#" class="overlay-button" data-target="OverlayMenu3">Shop <span class="far fa-long-arrow-right"></span></a></li>
+          <li class="menu-group"><a href="/contact-us">Contact Us</a></li>
+        </ul>
+
+        <!-- About Us Sub-Menu -->
+        <ul class="overlay-menu" id="OverlayMenu1">
+          <li class="menu-back"><a href="#"><span class="far fa-long-arrow-left"></span> Back to Main Menu</a></li>
+          <li class="menu-header"><a href="#">About Us</a></li>
+          <li class="menu-item"><a href="/drdanielleandry">Danielle Andry, MD</a></li>
+          <li class="menu-item"><a href="/nandi-wijay-houston">Nandi Wijay, MD</a></li>
+          <li class="menu-item"><a href="/about">Meet Our Plastic Surgeons</a></li>
+          <li class="menu-item"><a href="/staff/meet-our-dermatologists">Meet Our Dermatologists</a></li>
+          <li class="menu-item"><a href="/staff/meet-our-dermatologic-surgeons">Meet Our Dermatologic Surgeons</a></li>
+          <li class="menu-item"><a href="/staff/meet-our-physician-assistants-and-nurses">Meet Our Physician Assistants & Nurses</a></li>
+          <li class="menu-item"><a href="/staff/meet-our-aestheticians">Meet Our Aestheticians</a></li>
+          <li class="menu-item"><a href="/staff/meet-our-cosmetic-consultants">Meet Our Cosmetic Consultants</a></li>
+        </ul>
+
+        <!-- Plastic Surgery Sub-Menu -->
+        <ul class="overlay-menu" id="OverlayMenu2">
+          <li class="menu-back"><a href="#"><span class="far fa-long-arrow-left"></span> Back to Main Menu</a></li>
+          <li class="menu-header"><a href="#">Plastic Surgery</a></li>
+          <li class="menu-item"><a href="/breast-augmentation-houston">Breast Augmentation</a></li>
+          <li class="menu-item"><a href="/houston-tummy-tucks">Tummy Tuck</a></li>
+          <li class="menu-item"><a href="/liposuction-houston">Liposuction</a></li>
+          <li class="menu-item"><a href="/labiaplasty-houston">Labiaplasty</a></li>
+          <li class="menu-item"><a href="/hair-restoration-houston">Hair Transplant</a></li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem1" aria-expanded="false">Face&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem1">
+              <li class="menu-subitem"><a href="/houston-facelift">Facelift</a></li>
+              <li class="menu-subitem"><a href="/houston-necklift">Necklift</a></li>
+              <li class="menu-subitem"><a href="/blepharoplasty-surgery-houston">Eyelid Surgery</a></li>
+              <li class="menu-subitem"><a href="/houston-eyebrow-lift">Brow Lift</a></li>
+              <li class="menu-subitem"><a href="/earlobe-repair-houston">Earlobe Repair</a></li>
+              <li class="menu-subitem"><a href="/ear-pinning-houston">Ear Pinning (Otoplasty)</a></li>
+              <li class="menu-subitem"><a href="/chin-augmentation-houston">Chin Augmentation</a></li>
+              <li class="menu-subitem"><a href="/cheek-augmentation-houston">Cheek Augmentation</a></li>
+              <li class="menu-subitem"><a href="/houston-nose-jobs">Nose Job (Rhinoplasty)</a></li>
+              <li class="menu-subitem"><a href="/facial-fat-grafting-houston">Fat Grafting/Fat Transfer/Nanofat</a></li>
+              <li class="menu-subitem"><a href="/buccal-fat-removal">Buccal Fat Removal</a></li>
+              <li class="menu-subitem"><a href="/hair-restoration-houston">Hair Transplant</a></li>
+              <li class="menu-subitem"><a href="/lip-lift-houston">Lip Lift</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem2" aria-expanded="false">Breast&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem2">
+              <li class="menu-subitem"><a href="/breast-surgery-houston">Breast Surgery</a></li>
+              <li class="menu-subitem"><a href="/breast-implants-houston">Breast Implants</a></li>
+              <li class="menu-subitem"><a href="/mommy-makeover-houston">Mommy Makeover</a></li>
+              <li class="menu-subitem"><a href="/breast-augmentation-houston">Breast Augmentation</a></li>
+              <li class="menu-subitem"><a href="/breast-lift-surgery-houston">Breast Lift (Mastopexy)</a></li>
+              <li class="menu-subitem"><a href="/breast-reduction-houston">Breast Reduction</a></li>
+              <li class="menu-subitem"><a href="/gynecomastia-houston">Male Breast Reduction (Gynecomastia)</a></li>
+              <li class="menu-subitem"><a href="/breast-reconstruction-houston">Breast Reconstruction</a></li>
+              <li class="menu-subitem"><a href="/breast-implant-removal">Breast Implant Removal</a></li>
+              <li class="menu-subitem"><a href="/inverted-nipple-houston">Inverted Nipple</a></li>
+              <li class="menu-subitem"><a href="/nipple-reduction-houston">Nipple Reduction</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem3" aria-expanded="false">Body&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem3">
+              <li class="menu-subitem"><a href="/labiaplasty-houston">Labiaplasty / Labia Reduction</a></li>
+              <li class="menu-subitem"><a href="/mommy-makeover-houston">Mommy Makeover</a></li>
+              <li class="menu-subitem"><a href="/houston-tummy-tucks">Tummy Tuck</a></li>
+              <li class="menu-subitem"><a href="/butt-lift-houston">Brazilian Butt Lift</a></li>
+              <li class="menu-subitem"><a href="/houston-vaginoplasty">Vaginoplasty</a></li>
+              <li class="menu-subitem"><a href="/liposuction-houston">Liposuction</a></li>
+              <li class="menu-subitem"><a href="/arm-lift-houston">Arm Lift (Brachioplasty)</a></li>
+              <li class="menu-subitem"><a href="/lipectomy-houston">Back Lift</a></li>
+              <li class="menu-subitem"><a href="/thigh-lift-houston">Thigh Lift (Thighplasty)</a></li>
+              <li class="menu-subitem"><a href="/lipectomy-houston">Lower Body Lift (Belt Lipectomy or Saddle Bags)</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem5" aria-expanded="false">injectables/med spa&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem5">
+              <li class="menu-subitem"><a href="/houston-botox">Newtox Jeuveau, Botox and Dysport</a></li>
+              <li class="menu-subitem"><a href="/fillers-houston">Fillers</a></li>
+              <li class="menu-subitem"><a href="/chemical-peel-houston">Chemical Peel</a></li>
+              <li class="menu-subitem"><a href="/vampire-facial-houston">Vampire Facial</a></li>
+              <li class="menu-subitem"><a href="/microneedling-houston">Microneedling</a></li>
+              <li class="menu-subitem"><a href="/microdermabrasion-houston">Microdermabrasion</a></li>
+              <li class="menu-subitem"><a href="/kybella-houston">Kybella</a></li>
+              <li class="menu-subitem"><a href="/houston-skin-care-clinic">Skin Care</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem6" aria-expanded="false">reconstructive surgery&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem6">
+              <li class="menu-subitem"><a href="/breast-reduction-houston">Breast Reduction</a></li>
+              <li class="menu-subitem"><a href="/reconstructive-lumpectomy-surgery-houston">Reconstruction of Lumpectomy Defects</a></li>
+              <li class="menu-subitem"><a href="/breast-reconstruction-houston">Breast Reconstruction</a></li>
+              <li class="menu-subitem"><a href="/migraine-treatment-houston">Surgical Migraine Treatment</a></li>
+              <li class="menu-subitem"><a href="/carpal-tunnel-surgery-houston">Carpal Tunnel Surgery</a></li>
+              <li class="menu-subitem"><a href="/cubital-tunnel-surgery-houston">Cubital Tunnel Surgery</a></li>
+              <li class="menu-subitem"><a href="/trigger-finger-release-surgery-houston">Trigger Finger Release</a></li>
+              <li class="menu-subitem"><a href="/dupuytrens-disease-surgery-houston">Dupuytren's Disease</a></li>
+              <li class="menu-subitem"><a href="/facial-skin-cancer-reconstruction-houston">Facial Cancer Reconstruction</a></li>
+              <li class="menu-subitem"><a href="/mass-excision-houston">Mass Excision</a></li>
+              <li class="menu-subitem"><a href="/massive-weight-loss-surgery">Massive Weight Loss</a></li>
+              <li class="menu-subitem"><a href="/scar-revision-houston-tx">Scar Revision</a></li>
+              <li class="menu-subitem"><a href="/c-section-closure-surgery-houston">Plastic Surgery Closure for C-Section</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem7" aria-expanded="false">Male&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem7">
+              <li class="menu-subitem"><a href="/gynecomastia-houston">Male Breast Reduction (Gynecomastia)</a></li>
+              <li class="menu-subitem"><a href="/pec-implants-houston" class="btn disabled">Pec Implants</a></li>
+              <li class="menu-subitem"><a href="/male-facelift-houston">Male Facelift</a></li>
+              <li class="menu-subitem"><a href="/hair-restoration-houston">Hair Transplant</a></li>
+              <li class="menu-subitem"><a href="#" class="btn disabled">Liposuction (Ab Etching/Pec Etching)</a></li>
+              <li class="menu-subitem"><a href="/male-tummy-tuck-houston">Male Tummy Tuck</a></li>
+              <li class="menu-subitem"><a href="/houston-nose-jobs">Rhinoplasty</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#" data-toggle="collapse" data-target="#MenuItem8" aria-expanded="false">ALL-IN-ONE SOLUTIONS&nbsp;<span class="far fa-angle-down"></span></a>
+            <ul class="collapse" id="MenuItem8">
+              <li class="menu-subitem"><a href="#" class="btn disabled">Daddy Do-Over</a></li>
+              <li class="menu-subitem"><a href="/mommy-makeover-houston">Mommy Makeover</a></li>
+              <li class="menu-subitem"><a href="#" class="btn disabled">Anti-Aging (Grand Mommy) Makeover</a></li>
+              <li class="menu-subitem"><a href="#" class="btn disabled">Massive Weight Loss</a></li>
+              <li class="menu-subitem"><a href="#" class="btn disabled">Glow Up/ Curvy Look</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Shop Sub-Menu -->
+        <ul class="overlay-menu" id="OverlayMenu3">
+          <li class="menu-back"><a href="#"><span class="far fa-long-arrow-left"></span> Back to Main Menu</a></li>
+          <li class="menu-header"><a href="#">Shop</a></li>
+          <li class="menu-item"><a href="/shop/garment">Garments</a></li>
+          <li class="menu-item"><a href="/shop/skin">Skin Products</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col rows-3">
+      <a href="/breast-augmentation-houston">Breast Augmentation</a>
+      <a href="/houston-tummy-tucks">Tummy Tuck</a>
+      <a href="/labiaplasty-houston">Labiaplasty Reduction</a>
+    </div>
+    <div class="col rows-1">
+      <a href="/virtual-consult">
+        <div>Schedule a Virtual Consult <span class="d-none d-md-inline"> with Dr. Danielle Andry</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Consultation Form Overlay (pricing portal loaded separately) -->
+<div class="overlay-form instapaper_ignore" id="consultationform">
+  <div class="row">
+    <div class="col-md-4">
+      <a class="btn btn-menu text-left form-close-menu" onclick="hideoverlay('consultationform')">CLOSE</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3 form-col">
+      <!-- Pricing portal component will be injected here -->
+      <slot name="pricing-portal" />
+    </div>
+    <div class="col-lg-3">
+      <div class="form-app-icon">
+        <img src="/img/menu-logo.png?9-01-2022" alt="tops" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,442 @@
+---
+// Breast Implants Houston, TX
+// Ported from: breast-implants-houston.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Breast Implants Houston, TX | The Oaks Plastic Surgery"
+  description="Breast Implants Houston, TX at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Breast Implants Houston, TX"
+  headerImage="/img/header-service.png"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/breast-implants-houston"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">What cup size do you desire?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <!--                                        <label>-->
+                                                <!--                                            <input type="radio" value="A" name="consult[option_one][]" />-->
+                                                <!--                                            <span class="text">A</span>-->
+                                                <!--                                        </label>-->
+                                                <label>
+                                                    <input type="radio" value="B" name="consult[option_one][]" />
+                                                    <span class="text">B</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="C" name="consult[option_one][]" />
+                                                    <span class="text">C</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="D" name="consult[option_one][]" />
+                                                    <span class="text">D</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="DD" name="consult[option_one][]" />
+                                                    <span class="text">DD</span>
+                                                </label>
+                                                <!--                                        <label>-->
+                                                <!--                                            <input type="radio" value="BIG" name="consult[option_one][]" />-->
+                                                <!--                                            <span class="text">BIG</span>-->
+                                                <!--                                        </label>-->
+                                                <input type="text" hidden value="Cup Size Wanted"
+                                                       name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">What is your current cup size?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="A" name="consult[option_two][]" />
+                                                    <span class="text">A</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="B" name="consult[option_two][]" />
+                                                    <span class="text">B</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="C" name="consult[option_two][]" />
+                                                    <span class="text">C</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="D" name="consult[option_two][]" />
+                                                    <span class="text">D</span>
+                                                </label>
+                                                <!--                                        <label>-->
+                                                <!--                                            <input type="radio" value="DD" name="consult[option_two][]" />-->
+                                                <!--                                            <span class="text">DD</span>-->
+                                                <!--                                        </label>-->
+                                                <!--                                        <label>-->
+                                                <!--                                            <input type="radio" value="BIG" name="consult[option_two][]" />-->
+                                                <!--                                            <span class="text">BIG</span>-->
+                                                <!--                                        </label>-->
+                                                <input type="text" hidden value="Current Cup Size"
+                                                       name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book a Consult with FREE breast implant sizing
+                                                kit!
+                                            </div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input"
+                                                       placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book
+                                                    Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <!--
+                                                                <div class="tab-content" id="myTabContent">
+                                                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                                        <div class="plash-size-title">What size implants are you considering?</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                                        <div class="plash-size-title">Basic Information</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                                                        <div class="plash-size-title">3rd Slide</div>
+                                                                        <div class="plash-size-elements">
+                                                                            <a class="plash-size-el" href="#">A</a>
+                                                                            <a class="plash-size-el" href="#">B</a>
+                                                                            <a class="plash-size-el" href="#">C</a>
+                                                                            <a class="plash-size-el" href="#">DD</a>
+                                                                            <a class="plash-size-el" href="#">BIG</a>
+                                                                        </div>
+                                                                        <div class="plash-size-click">
+                                                                            <ul class="nav nav-tabs just-end" role="tablist">
+                                                                                <li class="nav-item">
+                                                                                    <a class="blue-click d-inline-block" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Continue</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="mt-60 mb-0">
+                    <div class="container w-new100">
+                        <div class="row text-row">
+                            <div class="col-lg-12 offset-lg-0">
+                                <div class="plash-tags-elements">
+                                    <div class="row">
+                                        <a href="#" class="plash-tags-el">IMPLANT OPTIONS</a>
+                                        <a href="#" class="plash-tags-el">HOW IT CAN HELP</a>
+                                        <a href="#" class="plash-tags-el">VIDEO GALLERY</a>
+                                    </div>
+                                    <a href="#" class="plash-tags-el">CONSULTATION: WHAT TO EXPECT</a>
+                                    <a href="#" class="plash-tags-el">DAY OF: WHAT TO EXPECT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-8 offset-lg-2">-->
+<!--                            <p class="wow fadeInUp lead text-center">-->
+<!--                                Dr. Andry and Dr. Wijay have extensive experience in breast implant surgery for all types of patients. No matter your reason for seeking implants, the doctors at TOPS Houston will handle your surgery with personalized care and compassion.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </section>
+
+            
+            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="text-section" id="section-why-breast-aug">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="wow fadeInUp center text-center">What are the breast implant options at TOPS Houston?</h2>
+                    </div>
+                </div>
+                <div data-jarallax-element="-150" class="text-section-box"></div>
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6">
+                            <div class="text-section-block">
+                                <h3>Silicone</h3>
+                                <p>
+                                    Silicone implants are the most commonly used implants at TOPS Houston. Silicone implants feel more natural. Silicone implants typically have less rippling around the edges, making them appear more natural. Many of our Houston patients choose silicone implants for this reason.
+                                </p>
+                                <a class="breast-click" href="/contact-us">book a consult</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-lg-5">
+                            <div class="text-section-block">
+                                <h3>Saline</h3>
+                                <p>
+                                    As the name suggests, saline breast implants are filled with a saline solution. When filled to the recommended level, saline implants sometimes have ripples around the edges, making them slightly visible under the skin. At TOPS Houston, we fill our saline breast implants 10-15% more to avoid this rippling and provide a more natural look. We also offer the Ideal implant, which is a silicone implant that looks and feels more natural than the traditional saline implants.
+                                </p>
+                                <p>Your plastic surgeon will help you consider the benefits of each type of implant to ensure that you make a decision that you are truly comfortable with.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="text-section text-bg-grey mb-0">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="wow fadeInUp center text-center">How Can Breast Implant Surgery at TOPS Houston Help You?</h2>
+                    </div>
+                </div>
+                <div class="container pt-lg-4">
+                    <div class="row text-row">
+                        <div class="col-lg-12">
+                            <div class="text-section-block text-center">
+                                <h3></h3>
+                                <p>Our Houston patients have a variety of reasons for seeking breast implant surgery, but ultimately, they all have one thing in common: a desire to feel more confident in their body. No matter the reason for seeking implants, TOPS Houston plastic surgeons strive to understand your goals and help you meet them through breast implant surgery. Some of the most common reasons patients come to use for this procedure are:</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="text-section-block">
+                                <h3>Size and Shape</h3>
+                                <p>
+                                    The most common reason women seek breast implant surgery is to increase the size of their bust. Whether you’re looking to go up one cup size or several, TOPS Houston will help you safely achieve the look you desire. Many of our patients are also self-conscious about the shape of their breasts. In addition to adjusting to the desired size, we can help correct asymmetrical, narrow, or tuberous breasts, offering a new natural, beautiful shape.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>After Pregnancy</h3>
+                                <p>After pregnancy and nursing, many women experience breast deflation or sagging. If you are self-conscious about the appearance of your postpartum body, we can help you return to your desired figure through a number of cosmetic procedures. In the event you’ve experienced significant sagging, your doctor may suggest a breast lift (mastopexy) with or without implants.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-lg-5">
+                            <div class="text-section-block">
+                                <h3>After Mastectomy</h3>
+                                <p>
+                                    A mastectomy can be an emotionally and physically trying experience for any woman. While some women choose to maintain their post-procedural appearance, others prefer to seek implants to restore their shape, figure, or personal image. At TOPS Houston, we treat all patients with compassion and sensitivity to ensure that no matter the reason you seek cosmetic surgery, you are well cared for both physically and emotionally.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="collapse-category">
+                <div class="container-fluid book-free-consultation with-bg">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <h2>Book A Consultation</h2>
+                            <p>
+                                The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom trained and now practice in Houston, Texas. Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of the line care with a focus on safety, patient comfort, and meticulous attention to detail. The Oaks Plastic Surgery wants to help you look and feel like the best you!
+                            </p>
+                            <div class="book-consultation-form">
+                                
+                                <a href="/contact-us" class="d-inline-block d-lg-none btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!--            <section class="mb-0 pb-240">-->
+<!--                <div class="container-fluid">-->
+<!--                    -->
+<!--                </div>-->
+<!--            </section>-->
+
+<!--            -->
+
+            <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="text-section text-bg-grey mb-0">
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6 " id="section-day-of-expect">
+                            <div class="text-section-block">
+                                <h3>What to Expect at Your Initial Consultation for Breast Implant Surgery</h3>
+                                <p class="align-content-end">At your initial consultation, your surgeon will:
+                                </p>
+                                <ul>
+                                    <li>Gain a thorough understanding of your goals and desires for surgery</li>
+                                    <li>Perform an anatomical exam</li>
+                                    <li>Discuss the risks, benefits, and options for breast implant surgery. Together, you’ll determine what types of incision site, placement, implant, and size are right for you.</li>
+                                    <li>Give you an information packet about your procedure and recovery</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 " id="section-recovery-expect">
+                            <div class="text-section-block">
+                                <h3>What to Expect from Recovery after Breast Implants at TOPS Houston </h3>
+                                <p class="align-content-end">
+                                    Thanks to variety of pain management techniques, TOPS Houston breast implant patients are able to recover with little pain and minimal narcotic use. As long as you follow post-operative instructions carefully, you can generally expect to return to work in one to two weeks and return to moderate and gentle exercise in four to six weeks.
+                                </p>
+                                <p>
+                                    Your TOPS Houston surgeon will contact you after surgery to make sure you are recovering normally and answer your questions and concerns.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+<!--                            <a href="tel:--><!--">--><!--</a>-->
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="pb-240">
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                
+                    </div>
+            </section>
+           
+<!--            <section class="text-section pb-240">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <h2 class="wow fadeInUp center text-center">TOPS Houston would love to make your breast implant experience a great one. <a href="/contact-us">Contact us</a> to schedule your initial consultation!</h2>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
+           
+            <!-- <section class="pb-240">
+                <div class="container-fluid">
+            
+                </div>
+            </section> -->
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,123 @@
+---
+// LEAVE A REVIEW
+// Ported from: leave-review.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="LEAVE A REVIEW | The Oaks Plastic Surgery"
+  description="LEAVE A REVIEW in Houston, TX at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="LEAVE A REVIEW"
+  headerImage="/img/header-service.png"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/leave-review"
+>
+<section class="contact-section">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="offset-xl-1 col-xl-10 leave-review-form fadeInUp" id="ContactForm">
+                        
+                                <form method="POST" class="leave-form" action="">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> We have received your review.
+                                    </div>
+                                
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Error!</strong> Please try again.
+                                    </div>
+                                
+                                
+                                <input type="hidden" name="_methods" value="post" />
+                                <input type="hidden" id="company_id" name="company_ids" value="3" />
+
+                                <input type="hidden" id="callback_url" name="callback_urls"
+                                       value="https://theoaksplasticsurgery.com/leave-review.php?review=true" />
+                                <input type="hidden" id="url" name="urls" value="http://theoaksplasticsurgery.com" />
+                                <input type="hidden" id="email" name="emails" value="kelsey@nkpmedical.com" />
+                                <input type="hidden" name="email_valids" id="email_valid" value="0" />
+                                <input type="hidden" name="texts" id="text" value="" />
+                                <input type="hidden" name="modals" value="0" />
+                                
+                                <div class="form-group">
+                                    <div class="label"><span>Your Rating</span></div>
+                                    <div class="input-wrap">
+                                        <div class="rating">
+                                            <input type="radio" id="star5" checked name="rating" value="5" /><label class = "full" for="star5"></label>
+                                            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+                                            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+                                            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                                            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"><span>Reviewer Name</span><span class="small-text">Optional</span></div>
+                                    <div class="input-wrap">
+                                        <input type="text" class="form-control" id="names" name="forms[names]" placeholder="Full name/ Initials/ Blank if anonymous" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"><span>Service/Procedure</span></div>
+                                    <div class="input-wrap">
+                                        <select class="form-control" id="doctor" name="forms[procedure]" size="1">
+                                            <option value="" selected>Select Service/Procedure</option>
+                                            <option value="Breast Augmentation">Breast Augmentation</option>
+                                            <option value="Tummy Tuck">Tummy Tuck</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"><span>Provider/Injector</span></div>
+                                    <div class="input-wrap">
+                                        <select class="form-control" id="doctor" name="forms[doctor]" size="1">
+                                            <option value="" selected>Select Provider/Injector</option>
+                                            <option value="Dr. Danielle Andry, MD">Dr. Danielle Andry, MD</option>
+                                            <option value="Dr. Nandi Wijay, MD">Dr. Nandi Wijay, MD</option>
+                                            <option value="No Surgeon Preference">No Surgeon Preference</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"><span>Review</span></div>
+                                    <div class="input-wrap">
+                                        <textarea rows="3" class="form-control" id="message" name="forms[message]"
+                                                  placeholder="How was your experience at The Oaks Plastic Surgery?"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"></div>
+                                    <div class="input-wrap">
+                                        <!-- <a href="#" class="submit-review-button btn btn-primary">Submit review</a> -->
+                                        <a href="#" class="submit-review-button btn btn-primary">Submit review</a>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="email" name="email" value="kelsey@nkpmedical.com" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,282 @@
+---
+// Inverted Nipple Repair in Houston, Texas
+// Ported from: inverted-nipple-houston.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Inverted Nipple Repair in Houston, Texas | The Oaks Plastic Surgery"
+  description="Inverted Nipple Repair in Houston, Texas at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Inverted Nipple Repair in Houston, Texas"
+  headerImage="/img/inverted-nipple-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/inverted-nipple-houston"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">How long has your inverted nipple been there?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid three-columns">
+                                                <label>
+                                                    <input type="radio" value="My Whole Life" name="consult[option_one][]" />
+                                                    <span class="text">My Whole Life</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Just Happened" name="consult[option_one][]" />
+                                                    <span class="text">Just Happened</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Other" name="consult[option_one][]" />
+                                                    <span class="text">Other</span>
+                                                </label>
+                                                <input type="text" hidden value="Cup Size Wanted"
+                                                       name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Do you plan on breast feeding</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid two-columns">
+                                                <label>
+                                                    <input type="radio" value="Yes" name="consult[option_two][]" />
+                                                    <span class="text">Yes</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No" name="consult[option_two][]" />
+                                                    <span class="text">No</span>
+                                                </label>
+<!--                                                <label>-->
+<!--                                                    <input type="radio" value="C" name="consult[option_two][]" />-->
+<!--                                                    <span class="text">C</span>-->
+<!--                                                </label>-->
+<!--                                                <label>-->
+<!--                                                    <input type="radio" value="D" name="consult[option_two][]" />-->
+<!--                                                    <span class="text">D</span>-->
+<!--                                                </label>-->
+                                                <input type="text" hidden value="Current Cup Size"
+                                                       name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book a consult.</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input"
+                                                       placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book
+                                                    Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-60 mb-50">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0">
+                            <div class="plash-tags-elements">
+                                <a href="#" class="plash-tags-el">inverted nipple procedure</a>
+                                <a href="#" class="plash-tags-el">Why Consider it</a>
+                                <a href="#" class="plash-tags-el">Asian eye lids</a>
+                                <a href="#" class="plash-tags-el">RESULTS</a>
+                                <a href="#" class="plash-tags-el">VIDEO GALLERY</a>
+                                <a href="#" class="plash-tags-el">CONSULTATION: WHAT TO EXPECT</a>
+                                <a href="#" class="plash-tags-el">DAY OF: WHAT TO EXPECT</a>
+                                <a href="#" class="plash-tags-el">RECOVERY: WHAT TO EXPECT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            
+            
+<!--            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>-->
+
+            <section class="mt-60 mb-0" id="section-breast-aug">
+                <div class="container-fluid">
+                    <div class="row text-row">
+                        <div class="col-lg-10 offset-lg-1 no-padding">
+                            <div class="plash-breast" style="background-image: url(/img/breast-lift-5.jpg);">
+                                <div class="breast-title">What is Inverted Nipple Repair?</div>
+                                <div class="breast-text">
+                                    <p>Inverted nipple is a very common condition that has been said to affect 10 - 20% of women. Correction of inverted nipple can be performed alone or along with other breast procedures.</p>
+                                </div>
+                                <div class="breast-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="mb-0 pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+            <section class="mb-0 pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="cta-service" id="section-consultation-expect">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 no-padding service-right-cta">
+                            <div data-jarallax-element="-100">
+                                <h2 class="text-h-mort">What can you expect during your initial consultation?</h2>
+                                <span>If you are considering hair restoration in Houston, Texas, an appointment can be made with Dr. Danielle Andry or Dr. Nandi Wijay . You can expect the initial consultation to last an hour or more. In your consultation, your surgeon will:</span>
+                                <div class="performed-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 no-padding service-left-cta">
+                            <ul>
+                                <li>Listen to your specific complaints and goals</li>
+                                <li>Perform a thorough examination, focusing on your individual anatomy/li>
+                                <li>Discuss recommendations regarding surgical or nonsurgical techniques that may help you achieve your goals</li>
+                                <li>surgical procedures that are offered and which approach is right for you</li>
+                                <li>Preoperative photographs will be taken and the surgical plan will be analyzed for you with use of your photographs</li>
+                                <li>The risks and benefits of surgery will be thoroughly outlined for you</li>
+                                <li>You will be given ample opportunity to ask questions from both our physicians and staff regarding inverted nipple repair and any other surgical or nonsurgical procedures you may be interested in</li>
+                                <li>You will be sent home with a packet of information regarding the procedure including a detailed consent form and instructions for before and after inverted nipple repair</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-section text-bg-grey mb-0">
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6 " id="section-day-of-expect">
+                            <div class="text-section-block">
+                                <h3>What can I expect the day of my Inverted Nipple Repair in Houston, Texas?</h3>
+                                <p>If inverted nipple repair is to be performed alone, it will likely be performed in the procedure room at The Oaks Plastic Surgery Clinic. When you arrive at The Oaks Plastic Surgery Clinic, you will be brought back to the procedure room. You will be given medication to make you comfortable and numbing cream will be placed to eliminate or minimize the pain of local anesthetic injections. Once you are completely numb, Dr. Danielle Andry or Dr. Nandi Wijay will perform the procedure. The procedure typically takes between 30 minutes and one hour to perform. Afterwards, you will have a very bulky dressing, which helps keep the nipples in the correct position and protects the repair. This dressing will be removed 5 - 7 days post operatively.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+                            <!--                            <a href="tel:--><!--">--><!--</a>-->
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pb-240">
+        
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                
+                    </div>
+            </section>
+
+
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

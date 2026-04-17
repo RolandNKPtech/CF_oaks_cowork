@@ -1,0 +1,65 @@
+---
+// Skin Care Clinic in Houston, Texas
+// Ported from: houston-skin-care-clinic.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Skin Care Clinic in Houston, Texas | The Oaks Plastic Surgery"
+  description="Skin Care Clinic in Houston, Texas at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Skin Care Clinic in Houston, Texas"
+  headerImage="/img/facelift-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/houston-skin-care-clinic"
+>
+<section class="mb-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <p class="wow fadeInUp lead text-center">
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-0 pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+            <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+            <section class="pb-240">
+                <div class="container-fluid pt-lg-5">
+                    
+                </div>
+            </section >
+            
+            <!-- <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section > -->
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

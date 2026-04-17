@@ -1,0 +1,342 @@
+---
+// Filler Procedures at The Oaks Plastic Surgery
+// Ported from: fillers-houston.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Filler Procedures at The Oaks Plastic Surgery | The Oaks Plastic Surgery"
+  description="Filler Procedures at The Oaks Plastic Surgery in Houston, TX at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Filler Procedures at The Oaks Plastic Surgery"
+  headerImage="/img/fillers-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/fillers-houston"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">What do you desire to be more filler!?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid three-columns">
+                                                <label>
+                                                    <input type="radio" value="Lips" name="consult[option_one][]" />
+                                                    <span class="text">Lips</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Cheeks" name="consult[option_one][]" />
+                                                    <span class="text">Cheeks</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Chin" name="consult[option_one][]" />
+                                                    <span class="text">Chin</span>
+                                                </label>
+                                                <input type="text" hidden value="What do you desire to be more filler"
+                                                       name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Would you like to know how to save money?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid two-columns">
+                                                <label>
+                                                    <input type="radio" value="Yes" name="consult[option_two][]" />
+                                                    <span class="text">Yes</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No" name="consult[option_two][]" />
+                                                    <span class="text">No</span>
+                                                </label>
+                                                <input type="text" hidden value="Would you like to know how to save money?"
+                                                       name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book a Consultation!</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input"
+                                                       placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book
+                                                    Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-60 mb-50">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0">
+                            <div class="plash-tags-elements">
+                                <a href="#" class="plash-tags-el">What are fillers?</a>
+                                <a href="#" class="plash-tags-el">Common areas</a>
+                                <a href="#" class="plash-tags-el">RESULTS</a>
+                                <a href="#" class="plash-tags-el">VIDEO GALLERY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+                
+            </section>
+
+
+            <section class="mt-60 mb-0" id="section-breast-aug">
+                <div class="container-fluid">
+                    <div class="row text-row">
+                        <div class="col-lg-10 offset-lg-1 no-padding">
+                            <div class="plash-breast" style="background-image: url('img/face2.jpg')">
+                                <div class="breast-title">What are Fillers?</div>
+                                <div class="breast-text">
+                                    <p>Fillers consist of injectable materials that help fill and contour areas of the body. The most commonly used filler material at The Oaks Plastic Surgery (TOPS) is hyaluronic acid. Different molecule sizes and cohesiveness give the different filler products different characteristics, that in trained hands can help give you the look you want to achieve. The fillers most often used by the plastic surgeons at The Oaks Plastic Surgery include Juvederm Ultra, Juvederm Ultra Plus, Voluma, Vollure, Volbella, Restylane, Restylane Silk, Restylane Lyft, Restylane Defyne, Restylane Refyne, Radiesse, Sculptra, and Belotero Balance.</p>
+                                </div>
+                                <div class="breast-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-0">
+                <div class="container-fluid">
+                    <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px; visibility: visible; animation-name: fadeIn;">Why do you want facial fillers in Houston, Texas?</h2>
+                    <div class="row">
+                        <div class="offset-lg-1 col-lg-10">
+                            <p class="text-center">Over the years, areas of the face lose the fullness and elasticity of youth. Studies show that lips reach maximum fullness at age 16-18 and begin to progressively thin as we age. By about age 22, most people have started to lose the collagen and elastin in their skin and soft tissues leading to wrinkles in the skin and thinning and drooping of the structures of the face. Injectable fillers help to lift and fill these areas of the face to restore or augment your facial features. Areas that are most commonly injected in the face include the following:</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-section">
+                <div data-jarallax-element="-150" class="text-section-box"></div>
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6">
+                            <div class="text-section-block">
+                                <h3>Lips</h3>
+                                <p>
+                                    Lip augmentation is one of the most popular injectable procedures performed by our TOPS plastic surgeons. For younger patients desiring a fuller, more voluptuous look, hyaluronic acid fillers such as Juvederm Ultra, Juvederm Ultra Plus, and Restylane are most often used. These fillers can be used to give a more subtle lip augmentation or for more dramatic results. For patients more concerned about fine lines and wrinkles around the lips, lip augmentation to restore volume can help improve some of these wrinkles. Additionally, the use of a thinner product such as Volbella or Restylane Silk can help to further fill in these lines. Additionally, different skin care regimens or peels can also help treat or prevent fine lines and wrinkles around the lips.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Nasolabial Folds</h3>
+                                <p>
+                                    Nasolabial folds are the deeper folds from the corners of the nose to the corners of the mouth.  While it is normal and beautiful to have these folds, the folds tend to get deeper and more pronounced as we age.  Placing some filler into these areas helps to smooth these areas, creating a more youthful, soft appearance.  Our TOPS plastic surgeons typically use Juvederm Ultra, Restylane, Refyne, Defyne, Vollure, or Belotero to treat these areas.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Under Eye</h3>
+                                <p>
+                                    The under eye area or tear trough area is also a very common area our TOPS plastic surgeons perform augmentation using fillers.  As we age, the cheek area drops leaving hollows and dark circles under the eyes.  Filler can be used to augment the tear trough area to make you look more awake and refreshed.  Filler can also be used to help camouflage under eye bags for those who want non-surgical correction of this area.  Depending on your unique anatomy and desires, a number of different fillers can be used in this area.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Hands</h3>
+                                <p>
+                                    As our hands age, they lose volume and can be a tell-tale sign of aging.  Fillers such as Radiesse and Restylane Lyft have been used to fill in the backs of the hands to create a more youthful appearance and mask the signs of aging.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Temples</h3>
+                                <p>
+                                    Our temple areas also begin to lose volume with age.  Using fillers to help restore this area keeps your face looking young with improved overall contour.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Ear Lobes</h3>
+                                <p>
+                                    Filler can be used to plump the ear lobe if earrings have pulled down the earlobes creating an elongated piercing.  This can help to improve the look and projection of your earlobes and earrings.  
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-lg-5">
+                            <div class="text-section-block">
+                                <h3>Cheeks</h3>
+                                <p class="align-content-end">
+                                    Cheek augmentation can be used for patients desiring higher, more prominent cheekbones as full-time contouring and highlighting.  <a href="/cheek-augmentation-houston">Cheek augmentation</a> can also be very helpful for patients whose cheeks have begun to sag or lose volume due to age.  This is typically performed with thicker, more cohesive fillers such as Voluma, Restylane Lyft or Belotero.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Chin</h3>
+                                <p class="align-content-end">
+                                    <a href="/chin-augmentation-houston">chin augmentation</a> can be performed with filler for patients who do not want a surgical chin augmentation.  Chin augmentation can really have dramatic results for the overall shape and balance of the face.  Patients who undergo chin augmentation often look as if they have had a rhinoplasty or neck lift simply from chin augmentationrestoring balance to the face.  Chin augmentation is often also performed with thicker, more cohesive fillers such as Voluma, Restylane Lyft, or Belotero.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Non-surgical Rhinoplasty</h3>
+                                <p class="align-content-end">
+                                    with careful knowledge of anatomy and facial dimensions and and ratios, filler can be used to perform a non-surgical rhinoplasty.  This particular technique is helpful for patients who do not want a full surgical rhinoplasty with a hump or crooked nose or a droopy nasal tip.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Neck Lines</h3>
+                                <p class="align-content-end">
+                                    A combination of <a href="/houston-botox">botox</a> and filler can be used to treat lines of the neck.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Jawline</h3>
+                                <p class="align-content-end">
+                                    Filler can be used to create a more angular, chiseled jawline, which can also improve neck contours.  As we age, our jawline and neckline lose definition and develop a wider angle.  Fillers can be used to improve these angles and overall facial contour.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Brows</h3>
+                                <p class="align-content-end">
+                                    carefully placed filler, often in combination with Botox, can help elevate the tail of the brow giving a subtle brow lift. This can brighten and open your eyes creating a sleeker, more awake look.  
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>G Spot</h3>
+                                <p class="align-content-end">
+                                    A combination of hyaluronic acid fillers and PRP have been used to enhance the “G Spot” and improve sexual satisfaction.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="collapse-category">
+                <div class="container-fluid book-free-consultation with-bg">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <h2>Book A Consultation</h2>
+                            <p>The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom trained and now practice in Houston, Texas. Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of the line care with a focus on safety, patient comfort, and meticulous attention to detail. The Oaks Plastic Surgery wants to help you look and feel like the best you!</p>
+                            <div class="book-consultation-form">
+                                
+                                <a href="/contact-us" class="d-inline-block d-lg-none btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="pb-240 filler-botox-3">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+            <section class="pb-240">
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        <div class="parallax-top col-lg-10 p-1  ml-auto">
+                            <img class="img-fluid " src="/img/doctors.jpg" alt="Meet Our Doctors" />
+                        </div>
+                        <div style="background-color: rgb(247, 248, 249); "
+                             class="parallax-card-new txt col-lg-6 text-center text-lg-left ">
+                            <h2 class="parallax-card-title">Meet Our Doctors</h2>
+                            <div class="parallax-card-text">
+                                The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom
+                                trained and and now practice in Houston, Texas.
+                                Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of
+                                the line care with a focus on safety, patient comfort, and meticulous attention to detail.
+                                The Oaks Plastic Surgery wants to help you look and feel like the best you!
+                            </div>
+                            <div class="performed-clickbox grid-clicks">
+                                <a class="performed-click btn-primary" href="/drdanielleandry">Dr. Danielle Andry</a>
+                                <a class="performed-click btn-primary" href="/nandi-wijay-houston">Dr. Nandi Wijay</a>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

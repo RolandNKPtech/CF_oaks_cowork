@@ -1,0 +1,142 @@
+---
+// Contact Us page — The Oaks Plastic Surgery
+// Ported from: /oaks_site/contact-us.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import ContactFormHandler from "../components/ContactFormHandler.astro";
+import TurnstileWidget from "../components/TurnstileWidget.astro";
+import { SITE } from "../lib/constants";
+---
+
+<Base
+  title="Contact Us | The Oaks Plastic Surgery"
+  description="Contact The Oaks Plastic Surgery in Houston, TX. Call us or fill out our form to schedule your consultation."
+  headerTitle="CONTACT US"
+  headerImage="/img/header-contact-us.png"
+  headerMarginBottom={120}
+  canonical="https://theoaksplasticsurgery.com/contact-us"
+>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Left Column: Contact Info -->
+        <div class="col-lg-6">
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+
+            <div class="contact-item">
+              <h4>Phone</h4>
+              <p>
+                <a href={`tel:${SITE.phoneTel}`}>{SITE.phone}</a>
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h4>Houston Office</h4>
+              <p>
+                2571 Kirby Dr<br />
+                Houston, TX 77019
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <h4>Fulshear Office</h4>
+              <p>
+                27131 Fulshear Bend Dr<br />
+                Fulshear, TX 77441
+              </p>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div id="map" style="width: 100%; height: 400px; margin-top: 30px; border-radius: 8px;"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Contact Form -->
+        <div class="col-lg-6">
+          <div class="contact-form">
+            <h3>Schedule a Consultation</h3>
+
+            <form data-contact-form data-source-page="/contact-us">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" class="form-control" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required />
+              </div>
+
+              <div class="form-group">
+                <label for="surgeon">Interested in Which Surgeon?</label>
+                <select class="form-control" id="surgeon" name="doctor">
+                  <option value="">Select a surgeon...</option>
+                  <option value="danielle-andry">Dr. Danielle Andry</option>
+                  <option value="nandi-wijay">Dr. Nandi Wijay</option>
+                  <option value="no-preference">No Surgeon Preference</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+              </div>
+
+              <div class="form-group hipaa-notice">
+                <small>
+                  By submitting this form, you acknowledge that you have read and agree to our
+                  <a href="/policy/hipaa" target="_blank">HIPAA Privacy Policy</a>.
+                </small>
+              </div>
+
+              <TurnstileWidget />
+              <button type="submit" class="btn btn-primary btn-main">SEND</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactFormHandler />
+
+  <slot name="scripts">
+    <script is:inline src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADYibCxJlELSg8i5xoHjlmLYAupKmHkUk&sensor=false&extension=.js"></script>
+    <script is:inline>
+      // Initialize Google Maps
+      function initMap() {
+        const mapCenter = { lat: 29.7553711, lng: -95.6055746 };
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: mapCenter,
+        });
+
+        // Houston Office Marker
+        const houstonMarker = new google.maps.Marker({
+          position: { lat: 29.7180933, lng: -95.8509236 },
+          map: map,
+          title: 'Houston Office - 2571 Kirby Dr, Houston, TX 77019',
+        });
+
+        // Fulshear Office Marker
+        const fulshearMarker = new google.maps.Marker({
+          position: { lat: 29.7426583, lng: -95.4178036 },
+          map: map,
+          title: 'Fulshear Office - 27131 Fulshear Bend Dr, Fulshear, TX 77441',
+        });
+      }
+
+      // Call initMap when page loads
+      document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+  </slot>
+
+</Base>

@@ -1,0 +1,155 @@
+---
+/**
+ * Forum Q&A Carousel — fetches questions from /api/forum
+ * and renders an expandable Q&A section.
+ *
+ * Props:
+ *   service  — filter by service name
+ *   limit    — max questions (default 10)
+ *   title    — section heading
+ */
+
+interface Props {
+  service?: string;
+  limit?: number;
+  title?: string;
+}
+
+const {
+  service = "",
+  limit = 10,
+  title = "Ask a Question",
+} = Astro.props;
+
+const queryParams = new URLSearchParams();
+if (service) queryParams.set("service", service);
+queryParams.set("limit", String(limit));
+queryParams.set("approved", "true");
+const apiUrl = `/api/forum?${queryParams.toString()}`;
+---
+
+<section class="forum-section" data-forum-url={apiUrl}>
+  <div class="container">
+    <h2 class="text-center text-h-mort wow fadeIn pb-4" style="font-size: 36px">{title}</h2>
+    <div class="forum-list" id={`forum-${service.replace(/\s+/g, '-').toLowerCase() || 'all'}`}>
+      <div class="forum-loading">Loading questions...</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .forum-section {
+    padding: 40px 0 60px;
+    background: #f8f9fa;
+  }
+  .forum-loading {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 0.875rem;
+  }
+  .forum-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .forum-item {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+  .forum-question {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.9375rem;
+    transition: background 0.15s;
+  }
+  .forum-question:hover { background: #f9fafb; }
+  .forum-toggle {
+    font-size: 1.25rem;
+    color: #888;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .forum-item.open .forum-toggle {
+    transform: rotate(180deg);
+  }
+  .forum-answer {
+    padding: 0 1.25rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  .forum-item.open .forum-answer {
+    padding: 0 1.25rem 1.25rem;
+    max-height: 600px;
+  }
+  .forum-answer-content {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #444;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+  }
+  .forum-answer-content p { margin-bottom: 0.75rem; }
+  .forum-doctor {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.forum-section').forEach(async (section) => {
+    const apiUrl = section.getAttribute('data-forum-url');
+    if (!apiUrl) return;
+
+    const container = section.querySelector('.forum-list') as HTMLElement;
+    if (!container) return;
+
+    try {
+      const res = await fetch(apiUrl);
+      if (!res.ok) throw new Error(`Forum API ${res.status}`);
+      const data = await res.json();
+
+      if (!data.questions || data.questions.length === 0) {
+        container.innerHTML = '<div class="forum-loading">No questions available.</div>';
+        return;
+      }
+
+      container.innerHTML = data.questions.map((q: any) => `
+        <div class="forum-item">
+          <div class="forum-question">
+            <span>${q.question_subject || q.question?.substring(0, 80) || 'Question'}</span>
+            <span class="forum-toggle">&#9660;</span>
+          </div>
+          <div class="forum-answer">
+            <div class="forum-answer-content">
+              ${q.answer || '<p>Answer coming soon.</p>'}
+              ${q.doctor ? `<div class="forum-doctor">— ${q.doctor}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Toggle behavior
+      container.querySelectorAll('.forum-question').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.forum-item');
+          if (item) item.classList.toggle('open');
+        });
+      });
+    } catch (err) {
+      container.innerHTML = '<div class="forum-loading">Q&A unavailable.</div>';
+      console.error('Forum load error:', err);
+    }
+  });
+</script>

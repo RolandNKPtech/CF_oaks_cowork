@@ -1,0 +1,60 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  /** Pass a JSON-LD object or array for page-specific structured data */
+  jsonLd?: Record<string, any> | Record<string, any>[];
+  /** For blog posts: article published time */
+  publishedTime?: string;
+  /** For blog posts: article modified time */
+  modifiedTime?: string;
+  /** For blog posts: article author */
+  articleAuthor?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType = "website",
+  jsonLd,
+  publishedTime,
+  modifiedTime,
+  articleAuthor,
+} = Astro.props;
+
+const siteUrl = "https://theoaksplasticsurgery.com";
+const resolvedCanonical = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const resolvedOgImage = ogImage || `${siteUrl}/img/open-graph-image.png`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={resolvedCanonical} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content="The Oaks Plastic Surgery" />
+
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{articleAuthor && <meta property="article:author" content={articleAuthor} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />
+
+<!-- Page-specific JSON-LD -->
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

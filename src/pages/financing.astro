@@ -1,0 +1,63 @@
+---
+// Financing page — The Oaks Plastic Surgery
+// Ported from: /oaks_site/financing.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Financing | The Oaks Plastic Surgery"
+  description="Learn about financing options at The Oaks Plastic Surgery. We accept CareCredit for plastic surgery procedures."
+  headerTitle="Financing"
+  headerImage="/img/header-contact-us.png"
+  headerMarginBottom={120}
+  canonical="https://theoaksplasticsurgery.com/financing"
+>
+  <!-- Financing Section -->
+  <section class="mb-0">
+    <div class="container w-new100">
+      <div class="row text-row">
+        <div class="col-lg-12 offset-lg-0 plr-60 my-5 py-5">
+          <div class="financing-block-wrap">
+            <h3 class="financing-title">Financing Options</h3>
+            <div class="financing-block">
+              <div class="financing-block-item">
+                <div class="info">
+                  <div class="title">CARE CREDIT</div>
+                  <p>Please visit CareCredit for more information and to apply.</p>
+                  <p>We also offer packages and membership pricing on a selection of procedures. During your consultation we will be happy to review all of your financial options with you.</p>
+                  <div class="button-wrap">
+                    <a
+                      href="https://www.carecredit.com/doctor-locator/Medical-Aesthetics-in-HOUSTON-TX-77006/TOPS-Danielle-Andry-MD-PLLC/"
+                      target="_blank"
+                      rel="nofollow"
+                      class="btn-primary"
+                    >
+                      APPLY With CARE CREDIT
+                    </a>
+                  </div>
+                </div>
+                <div class="image">
+                  <img src="/img/financing.png" alt="CareCredit financing" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Grid -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+
+</Base>

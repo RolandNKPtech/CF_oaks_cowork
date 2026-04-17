@@ -1,0 +1,18 @@
+---
+import Nav from "./Nav.astro";
+
+interface Props {
+  title: string;
+  bgImage?: string;
+  marginBottom?: number;
+}
+
+const { title, bgImage = "/img/header-contact-us.png", marginBottom = 60 } = Astro.props;
+---
+
+<header style={`background: url(${bgImage}) no-repeat center center; background-size: cover;`}>
+  <Nav />
+  <div class="container title-container text-center">
+    <h1 style={`margin-bottom: ${marginBottom}px`} class="wow fadeInUp">{title}</h1>
+  </div>
+</header>

@@ -1,0 +1,516 @@
+---
+// Virtual Consult
+// Ported from: virtual-consult.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Virtual Consult | The Oaks Plastic Surgery"
+  description="Virtual Consult in Houston, TX at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Virtual Consult"
+  headerImage="/img/virtual-consult-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/virtual-consult"
+>
+<section class="mb-0">
+                <div class="container-fluid">
+                    <div class="row mx-auto" style="max-width: 1300px">
+                        <!-- <div class="col-lg-12"> -->
+                            <div class="lead text-center">
+                                <p class="wow fadeInUp">
+                                Congratulations on Taking your 1st step on your Journey
+                                </p>
+                                <h2 class="lead-heading text-h-mort">3 Easy Steps</h2>
+                                <div class="lead-steps">
+                                    <a href="#virtual-consult-1"><span>Send Contact / Demographic Form</span></a>
+                                    <a href="#virtual-consult-2"><span>The Oaks will contact you via text in 24 to 48 hours to confirm</span></a>
+                                    <a href="#virtual-consult-3"><span>Touch MD</span></a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </section>
+            <section class="pb-120" id="virtual-consult-1">
+                <div class="container-fluid">
+                    <div class="row mx-auto contact-form" style="max-width: 1300px">
+                        <div class="col-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-10 mx-auto">
+                                        <h2 class="text-h-mort">Contact Form</h2>
+                                        <form method="POST" action="#virtual-consult-1" enctype="multipart/form-data">
+                                            
+                                                <div class="alert alert-success alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                            aria-hidden="true">&times;</span></button>
+                                                    <strong>Success!</strong> We have received your message.
+                                                </div>
+                                            
+                                                
+                                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                                aria-hidden="true">&times;</span></button>
+                                                        <strong>Error!</strong> Empty or Invalid reCaptcha
+                                                    </div>
+                                                
+                                            
+                                            <div class="form-group column-2">
+                                                <input type="text" class="form-control" id="firstName" name="consult[firstName]"
+                                                    placeholder="First Name*" />
+                                                <input type="text" class="form-control" id="lastName" name="consult[lastName]"
+                                                    placeholder="Last Name*" />
+                                            </div>
+                                            <div class="form-group column-2">
+                                                <input type="text" class="form-control" id="date" name="consult[dob]"
+                                                       placeholder="Date of birth (mm/dd/yyyy)*" />
+                                                <select class="form-control" name="consult[gender]" id="cr_gender" size="1">
+                                                    <option value="" selected="">Gender*</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Transgender Female">Transgender Female</option>
+                                                    <option value="Transgender Male">Transgender Male</option>
+                                                    <option value="Other/I prefer not to say">Other/I prefer not to say</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group column-2">
+                                                <select class="form-control" id="height" name="consult[height]" size="1">
+                                                    <option value="" selected>Height*</option>
+                                                    <option value="4'1&quot;">4'1"</option>
+                                                    <option value="4'2&quot;">4'2"</option>
+                                                    <option value="4'3&quot;">4'3"</option>
+                                                    <option value="4'4&quot;">4'4"</option>
+                                                    <option value="4'5&quot;">4'5"</option>
+                                                    <option value="4'6&quot;">4'6"</option>
+                                                    <option value="4'7&quot;">4'7"</option>
+                                                    <option value="4'8&quot;">4'8"</option>
+                                                    <option value="4'9&quot;">4'9"</option>
+                                                    <option value="4'10&quot;">4'10"</option>
+                                                    <option value="4'11&quot;">4'11"</option>
+                                                    <option value="5'1&quot;">5'1"</option>
+                                                    <option value="5'2&quot;">5'2"</option>
+                                                    <option value="5'3&quot;">5'3"</option>
+                                                    <option value="5'4&quot;">5'4"</option>
+                                                    <option value="5'5&quot;">5'5"</option>
+                                                    <option value="5'6&quot;">5'6"</option>
+                                                    <option value="5'7&quot;">5'7"</option>
+                                                    <option value="5'8&quot;">5'8"</option>
+                                                    <option value="5'9&quot;">5'9"</option>
+                                                    <option value="5'10&quot;">5'10"</option>
+                                                    <option value="5'11&quot;">5'11"</option>
+                                                    <option value="6'1&quot;">6'1"</option>
+                                                    <option value="6'2&quot;">6'2"</option>
+                                                    <option value="6'3&quot;">6'3"</option>
+                                                    <option value="6'4&quot;">6'4"</option>
+                                                    <option value="6'5&quot;">6'5"</option>
+                                                    <option value="6'6&quot;">6'6"</option>
+                                                    <option value="6'7&quot;">6'7"</option>
+                                                    <option value="6'8&quot;">6'8"</option>
+                                                    <option value="6'9&quot;">6'9"</option>
+                                                    <option value="6'10&quot;">6'10"</option>
+                                                    <option value="6'11&quot;">6'11"</option>
+                                                    <option value="7'1&quot;">7'1"</option>
+                                                    <option value="7'2&quot;">7'2"</option>
+                                                    <option value="7'3&quot;">7'3"</option>
+                                                    <option value="7'4&quot;">7'4"</option>
+                                                    <option value="7'5&quot;">7'5"</option>
+                                                    <option value="7'6&quot;">7'6"</option>
+                                                    <option value="7'7&quot;">7'7"</option>
+                                                    <option value="7'8&quot;">7'8"</option>
+                                                    <option value="7'9&quot;">7'9"</option>
+                                                    <option value="7'10&quot;">7'10"</option>
+                                                    <option value="7'11&quot;">7'11"</option>
+                                                    <option value="8'1&quot;">8'1"</option>
+                                                    <option value="8'2&quot;">8'2"</option>
+                                                    <option value="8'3&quot;">8'3"</option>
+                                                    <option value="8'4&quot;">8'4"</option>
+                                                    <option value="8'5&quot;">8'5"</option>
+                                                    <option value="8'6&quot;">8'6"</option>
+                                                    <option value="8'7&quot;">8'7"</option>
+                                                    <option value="8'8&quot;">8'8"</option>
+                                                    <option value="8'9&quot;">8'9"</option>
+                                                    <option value="8'10&quot;">8'10"</option>
+                                                    <option value="8'11&quot;">8'11"</option>
+                                                </select>
+                                                <input type="text" class="form-control" id="weight" name="consult[weight]"
+                                                    placeholder="Weight (lbs)*" />
+                                            </div>
+                                            <div class="form-group column-2">
+                                                <input type="email" class="form-control" id="email" name="consult[email]"
+                                                    placeholder="Your email*" />
+                                                <input type="tel" class="form-control" id="phone" name="consult[phone]"
+                                                    placeholder="Your phone number*" />
+                                            </div>
+                                            <div class="from-group">
+                                                <div class="flex fd-col flex-inline choose-preferred">
+                                                    <label for="" class="bold">
+                                                        Preferred Method of Contact:
+                                                    </label>
+                                                    <div id="cr_preferred_method">
+                                                        <label class="radio">
+                                                            <input type="radio" name="consult[referred_method]" value="Phone" id="cr_phone" checked="" />
+                                                            <i></i>
+                                                            <span>Phone</span>
+                                                        </label>
+                                                        <label class="radio">
+                                                            <input type="radio" name="consult[referred_method]" value="Email" id="cr_email" /> <i></i>
+                                                            <span>Email</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group column-2">
+                                                <select class="form-control" id="state" name="consult[state]" size="1">
+                                                    <option value="" selected>Select A State</option>
+                                                    <option value="Alabama">Alabama</option>
+                                                    <option value="Alaska">Alaska</option>
+                                                    <option value="Arizona">Arizona</option>
+                                                    <option value="Arkansas">Arkansas</option>
+                                                    <option value="California">California</option>
+                                                    <option value="Colorado">Colorado</option>
+                                                    <option value="Connecticut">Connecticut</option>
+                                                    <option value="Delaware">Delaware</option>
+                                                    <option value="District of Columbia">District of Columbia</option>
+                                                    <option value="Florida">Florida</option>
+                                                    <option value="Georgia">Georgia</option>
+                                                    <option value="Hawaii">Hawaii</option>
+                                                    <option value="Idaho">Idaho</option>
+                                                    <option value="Illinois">Illinois</option>
+                                                    <option value="Indiana">Indiana</option>
+                                                    <option value="Iowa">Iowa</option>
+                                                    <option value="Kansas">Kansas</option>
+                                                    <option value="Kentucky">Kentucky</option>
+                                                    <option value="Louisiana">Louisiana</option>
+                                                    <option value="Maine">Maine</option>
+                                                    <option value="Maryland">Maryland</option>
+                                                    <option value="Massachusetts">Massachusetts</option>
+                                                    <option value="Michigan">Michigan</option>
+                                                    <option value="Minnesota">Minnesota</option>
+                                                    <option value="Mississippi">Mississippi</option>
+                                                    <option value="Missouri">Missouri</option>
+                                                    <option value="Montana">Montana</option>
+                                                    <option value="Nebraska">Nebraska</option>
+                                                    <option value="Nevada">Nevada</option>
+                                                    <option value="New Hampshire">New Hampshire</option>
+                                                    <option value="New Jersey">New Jersey</option>
+                                                    <option value="New Mexico">New Mexico</option>
+                                                    <option value="New York">New York</option>
+                                                    <option value="North Carolina">North Carolina</option>
+                                                    <option value="North Dakota">North Dakota</option>
+                                                    <option value="Ohio">Ohio</option>
+                                                    <option value="Oklahoma">Oklahoma</option>
+                                                    <option value="Oregon">Oregon</option>
+                                                    <option value="Pennsylvania">Pennsylvania</option>
+                                                    <option value="Rhode Island">Rhode Island</option>
+                                                    <option value="South Carolina">South Carolina</option>
+                                                    <option value="South Dakota">South Dakota</option>
+                                                    <option value="Tennessee">Tennessee</option>
+                                                    <option value="Texas">Texas</option>
+                                                    <option value="Utah">Utah</option>
+                                                    <option value="Vermont">Vermont</option>
+                                                    <option value="Virginia">Virginia</option>
+                                                    <option value="Washington">Washington</option>
+                                                    <option value="West Virginia">West Virginia</option>
+                                                    <option value="Wisconsin">Wisconsin</option>
+                                                    <option value="Wyoming">Wyoming</option>
+                                                </select>
+                                                <input type="text" class="form-control" id="city" name="consult[city]"
+                                                    placeholder="City" />
+                                            </div>
+                                            <!-- <div class="form-group column-2">
+                                                <input type="text" class="form-control" id="phone" name="consult[phone]"
+                                                    placeholder="Phone" />
+                                                <input type="text" class="form-control" id="email" name="consult[email]"
+                                                    placeholder="Email" />
+                                            </div> -->
+                                            <div class="form-group">
+                                                <select class="form-control" id="doctor" name="consult[doctor]" size="1">
+                                                    <option value="" selected>Select A Doctor*</option>
+                                                    <option value="Dr. Danielle Andry, MD">Dr. Danielle Andry, MD</option>
+                                                    <option value="Dr. Nandi Wijay, MD">Dr. Nandi Wijay, MD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="flex fd-col flex-inline">
+                                                    <label for="cr_how_did_hear" class="bold">How did you hear about us?*</label>
+                                                    <div class="flex2-xs select-wrapper">
+                                                        <select class="form-control" id="hear" name="consult[hear]" size="1">
+                                                            <option value="" selected>Please select</option>
+                                                            <option value="Instagram">Instagram</option>
+                                                            <option value="Facebook">Facebook</option>
+                                                            <option value="RealSelf">RealSelf</option>
+                                                            <option value="Friend/Family Referral">Friend/Family Referral</option>
+                                                            <option value="Google Search">Google Search</option>
+                                                            <option value="Doctor Referral">Doctor Referral</option>
+                                                            <option value="YouTube">YouTube</option>
+                                                            <option value="Existing Patient">Existing Patient</option>
+                                                            <option value="Sientra">Sientra</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="bold">Procedure(s) of interest:</label>
+                                                <ul class="list-three ul-consult" id="cr_procedure">
+                                                    <li>
+                                                        <input type="checkbox" value="Breast Reconstruction" name="consult[products][]" id="cr_breast_reconstruction" />
+                                                        <label for="cr_breast_reconstruction">Breast Reconstruction</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Breast Augmentation" name="consult[products][]" id="cr_breast_aug" />
+                                                        <label for="cr_breast_aug">Breast Augmentation</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Breast Lift" name="consult[products][]" id="cr_breast_lift" />
+                                                        <label for="cr_breast_lift">Breast Lift</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Breast Reduction" name="consult[products][]" id="cr_breast_reduction" />
+                                                        <label for="cr_breast_reduction">Breast Reduction</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Brazilian Butt Lift (BBL)" name="consult[products][]" id="cr_brazilian_butt_lift" />
+                                                        <label for="cr_brazilian_butt_lift">Brazilian Butt Lift (BBL)</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Blepharoplasty" name="consult[products][]" id="cr_blepharoplasty" />
+                                                        <label for="cr_blepharoplasty">Blepharoplasty</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Mommy Makeover" name="consult[products][]" id="cr_mommy_makeover" />
+                                                        <label for="cr_mommy_makeover">Mommy Makeover</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Tummy Tuck" name="consult[products][]" id="cr_tummy_tuck" />
+                                                        <label for="cr_tummy_tuck">Tummy Tuck</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Liposuction" name="consult[products][]" id="cr_liposuction" />
+                                                        <label for="cr_liposuction">Liposuction</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Upper/Lower Body Lift" name="consult[products][]" id="cr_body_lift" />
+                                                        <label for="cr_body_lift">Upper/Lower Body Lift</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Gynecomastia" name="consult[products][]" id="cr_gynecomastia" />
+                                                        <label for="cr_gynecomastia">Gynecomastia</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Facelift" name="consult[products][]" id="cr_facelift" />
+                                                        <label for="cr_facelift">Facelift</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Facial Rejuvenation" name="consult[products][]" id="cr_facial_rejuvenation" />
+                                                        <label for="cr_facial_rejuvenation">Facial Rejuvenation</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Rhinoplasty" name="consult[products][]" id="cr_rhinoplasty" />
+                                                        <label for="cr_rhinoplasty">Rhinoplasty</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Labiaplasty" name="consult[products][]" id="cr_labiaplasty" />
+                                                        <label for="cr_labiaplasty">Labiaplasty</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Hair Transplant" name="consult[products][]" id="cr_hair_transplant" />
+                                                        <label for="cr_hair_transplant">Hair Transplant</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" value="Non-Surgical MedSpa" name="consult[products][]" id="cr_medspa" />
+                                                        <label for="cr_medspa">Non-Surgical MedSpa</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" id="is_product_other" />
+                                                        <label for="cr_other">Other</label>
+                                                        <input type="text" id="product_other" name="consult[products][]" placeholder="Other" class="input-other" style="display: none;" />
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <div class="consultation-question flex fd-col flex-inline">
+                                                    <label for="" class="bold consultation-label">Do you have any children?</label>
+                                                    <div class="mb0" id="cr_has_child"> 
+                                                        <label class="radio"> 
+                                                            <input type="radio" value="Yes" name="consult[has_child]" id="cr_yes" class="has_child" />
+                                                            <i></i> 
+                                                            <span>Yes</span> 
+                                                        </label> 
+                                                        <label class="radio"> 
+                                                            <input type="radio" value="N/A" name="consult[has_child]" id="cr_na" class="has_child" checked="" />
+                                                            <i></i> 
+                                                            <span>N/A</span> 
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="consultation-question flex fd-col flex-inline">
+                                                    <label for="" class="bold consultation-label">Do you have any medical condition?</label>
+                                                    <div class="mb0" id="cr_medical_condition"> 
+                                                        <label class="radio"> 
+                                                            <input type="radio" value="Yes" name="consult[medical_condition]" id="cr_medical_yes" class="has_child has_medical_condition" />
+                                                            <i></i> 
+                                                            <span>Yes</span> 
+                                                        </label> 
+                                                        <label class="radio"> 
+                                                            <input type="radio" value="No" name="consult[medical_condition]" id="cr_medical_no" class="has_child has_medical_condition" checked="" />
+                                                            <i></i> 
+                                                            <span>No</span> 
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="pastExperience" name="consult[pastExperience]"
+                                                    placeholder="Have you had any cosmetic surgeries/procedures in the past?  If so, please list which procedure(s) and date(s)*"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="data" name="consult[data]"
+                                                    placeholder="Is there a time frame or date you would like to complete your procedure?*"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="comments" name="consult[comments]"
+                                                          placeholder="Additional questions/comments:"></textarea>
+                                            </div>
+                                            <p class="title">Upload Your Photos:</p>
+                                            <p>Please attach your photos, so we can make an accurate assessment of your needs. You are not required to show your face unless you are interested in a facial procedure.</p>
+                                            <p>Once you submit your consultation request, a team member will contact you to schedule your consultation. Please allow 5 - 7 business days for your request to be processed and reviewed. If you have any questions, please contact our office and we will be happy to assist you.</p>
+                                            <p>For Body Photos - please leave underwear on.
+                                                For Breast Photos - no brassiere</p>
+                                            <div class="form-group flex fd-col flex-file flex-four mb0">
+                                                
+                                            </div>
+                                            <div class="form-group flex fd-col flex-other flex-two">
+                                                <div>
+                                                    <label for="" class="bold">Other</label>
+                                                    <div class="file-holder" id="other_photo">
+                                                        <div class="img-holder">
+                                                            <noscript>
+                                                                <img class="lazy"
+                                                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E"
+                                                                    data-src="/img/upload-placeholder.jpg"
+                                                                    alt="Placeholder"/>
+                                                            </noscript>
+                                                            <img class=" lazyloaded"
+                                                                 src="/img/upload-placeholder.jpg"
+                                                                 data-src="/img/upload-placeholder.jpg"
+                                                                 alt="Placeholder" />
+                                                        </div>
+                                                        <span class="file-name">Press Button</span>
+                                                        <label for="" class="btn box-shadow">
+                                                            Upload Image
+                                                            <input type="file"
+                                                                   name="other_photo"
+                                                                   class="input-file hidden"
+                                                                   accept="image/x-png,image/jpeg" />
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="mb0">*Photos must be uploaded to proceed in the consultation process.</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group hippa-text">                                                
+                                                <h4 class="text-h-mort">HIPPA Acknowledgement</h4>
+                                                <p>
+                                                    Please be aware that this is a secure email network under HIPAA guidelines. Do not submit any personal or private information unless you are authorized and have voluntarily consented to do so. We are not liable for any HIPAA violations. Understand that if you email us, you are agreeing to the use of this secure method and understand that all replies will be sent by standard (unsecured) email, which you are hereby authorizing. By checking this box you hereby agree to hold The Oaks Plastic Surgery Center, including its doctors and affiliates, harmless from any hacking or any other unauthorized use of your personal information by outside parties.
+                                                </p>
+                                                <p>
+                                                    Merkava Group and Elite Dermatology & The Oaks Plastic Surgery utilize an unencrypted text messaging and cloud 
+                                                    based services to transmit the personal information you provide herein. By submitting any form you hereby consent 
+                                                    to the utilization of such unencrypted text messaging and cloud based services services to transmit such information. 
+                                                    Messaging services typically do not have password protection, which can make these applications susceptible to 
+                                                    access by third-parties if a device is lost or stolen.  By submitting any form you affirm that you are aware of 
+                                                    the risks associated such unencrypted text messaging and cloud based services and you hereby consent to the use 
+                                                    of such unencrypted services by Merkava Group and Elite Dermatology & The Oaks Plastic Surgery despite these known risk.
+                                                </p>
+                                                <p>
+                                                    If you do not wish to have your personal health information transmitted by Merkava Group and Elite Dermatology & The 
+                                                    Oaks Plastic Surgery as described above, please call our office at <a href="tel:832-900-7070">832-900-7070</a> to speak 
+                                                    with one of our staff members today. Elite Dermatology & The Oaks Plastic respects your privacy and wants to ensure you 
+                                                    are fully aware of how your personal health information is transmitted.
+                                                </p>
+                                                <p>
+                                                <input type="checkbox" name="consult[hippa]" />  By checking this box, I acknowledge my understanding of the HIPAA Policy and agree with its contents. *
+                                                </p>
+                                            </div>
+                                            <p class="has-error" style="border: none; display: none;">Missing information! please check and fill out required fields.</p>
+                                            <a href="#" class="btn submit-consult-button btn-primary btn-main w-auto" onclick="showConsultRecaptcha(event)">
+                                                SEND
+                                            </a>
+                                            <div class="alert alert-success alert-dismissible loader-alert" style="display: none">
+                                                <img src="../img/loading-icon.svg" class="loader-icon-img" alt="" />
+                                                <b>Submitting Form...</b>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-0 pb-240" id="virtual-consult-2">
+                <div class="container-fluid">
+                    
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        <div class="parallax-top col-lg-10 p-1  ml-auto"
+                            data-jarallax-element="-50">
+                            <img class="img-fluid " src=""
+                                alt="" />
+                        </div>
+                        <div style="background-color: ;"
+                            class="parallax-card txt col-lg-6 text-lg-left mt-2 pt-5  ml-auto"
+                            data-jarallax-element="20">
+                            <h2></h2>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="pb-120" id="virtual-consult-3">
+                <div class="container-fluid">
+                    
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        <div class="parallax-top col-lg-10 p-1  ml-auto"
+                            data-jarallax-element="-50">
+                            <img class="img-fluid " src=""
+                                alt="" />
+                        </div>
+                        <div style="background-color: ;"
+                            class="parallax-card txt col-lg-6 text-lg-left mt-2 pt-5  ml-auto"
+                            data-jarallax-element="20">
+                            <h2></h2>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="pb-240">
+                <div class="container-fluid">
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                    </div>
+            </section>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

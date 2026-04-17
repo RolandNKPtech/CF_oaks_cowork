@@ -1,0 +1,54 @@
+---
+/**
+ * Cloudflare Turnstile — invisible CAPTCHA widget.
+ *
+ * Renders a hidden turnstile challenge. On completion, sets a hidden
+ * input `cf-turnstile-response` inside the parent form.
+ *
+ * Props:
+ *   siteKey — Turnstile site key (use "1x00000000000000000000AA" for local testing)
+ *   formId  — optional: target a specific form by id
+ */
+
+interface Props {
+  siteKey?: string;
+  formId?: string;
+}
+
+const {
+  siteKey = "1x00000000000000000000AA", // Turnstile test key — always passes
+  formId,
+} = Astro.props;
+---
+
+<div class="cf-turnstile"
+  data-sitekey={siteKey}
+  data-callback="onTurnstileSuccess"
+  data-theme="light"
+  data-size="normal"
+  {... formId ? { "data-form-id": formId } : {}}
+></div>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script is:inline>
+  function onTurnstileSuccess(token) {
+    // Find the closest form and inject the token
+    var widgets = document.querySelectorAll('.cf-turnstile');
+    widgets.forEach(function(w) {
+      var form = w.closest('form');
+      if (form) {
+        var existing = form.querySelector('input[name="cf-turnstile-response"]');
+        if (!existing) {
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'cf-turnstile-response';
+          input.value = token;
+          form.appendChild(input);
+        } else {
+          existing.value = token;
+        }
+      }
+    });
+  }
+</script>

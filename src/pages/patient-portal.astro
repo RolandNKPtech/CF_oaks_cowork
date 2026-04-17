@@ -1,0 +1,40 @@
+---
+// Patient Portal
+// Ported from: patient-portal.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Patient Portal | The Oaks Plastic Surgery"
+  description="Patient Portal in Houston, TX at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Patient Portal"
+  headerImage="/img/header-service.png"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/patient-portal"
+>
+<section class="contact-section">
+                <div class="container-fluid">
+                
+                </div>
+            </section>
+            
+
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

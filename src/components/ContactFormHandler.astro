@@ -1,0 +1,91 @@
+---
+/**
+ * Contact form submission handler — drop this component into any page
+ * that has a <form id="contact-form"> and it will handle the POST to /api/contact.
+ *
+ * Expected form field names: name, email, phone, message, doctor
+ * Optional data attributes on the form:
+ *   data-source-page — the page the form lives on
+ *   data-interested-in — pre-filled "interested in" value
+ */
+---
+
+<script>
+  function initContactForms() {
+    const forms = document.querySelectorAll('form[data-contact-form], #contact-form, .contact-form');
+
+    forms.forEach((form) => {
+      if ((form as any).__contactHandlerBound) return;
+      (form as any).__contactHandlerBound = true;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const f = form as HTMLFormElement;
+        const submitBtn = f.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitBtn?.textContent || 'SEND';
+
+        // Disable button
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        // Remove any existing status message
+        const existingMsg = f.querySelector('.form-status');
+        if (existingMsg) existingMsg.remove();
+
+        // Gather form data
+        const formData = new FormData(f);
+        const payload: Record<string, string> = {};
+        formData.forEach((value, key) => {
+          payload[key] = value.toString();
+        });
+
+        // Add source page
+        payload.sourcePage = f.getAttribute('data-source-page') || window.location.pathname;
+        payload.interestedIn = f.getAttribute('data-interested-in') || payload.interestedIn || '';
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await res.json();
+
+          const msgEl = document.createElement('div');
+          msgEl.className = 'form-status';
+
+          if (res.ok && data.success) {
+            msgEl.style.cssText = 'background:#d4edda;color:#155724;padding:12px;border-radius:6px;margin-top:12px;font-size:0.9375rem;';
+            msgEl.textContent = data.message || 'Thank you! We have received your message.';
+            f.reset();
+          } else {
+            msgEl.style.cssText = 'background:#f8d7da;color:#721c24;padding:12px;border-radius:6px;margin-top:12px;font-size:0.9375rem;';
+            msgEl.textContent = data.message || 'Something went wrong. Please try again.';
+          }
+
+          f.appendChild(msgEl);
+        } catch {
+          const msgEl = document.createElement('div');
+          msgEl.className = 'form-status';
+          msgEl.style.cssText = 'background:#f8d7da;color:#721c24;padding:12px;border-radius:6px;margin-top:12px;font-size:0.9375rem;';
+          msgEl.textContent = 'Network error. Please try again.';
+          f.appendChild(msgEl);
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        }
+      });
+    });
+  }
+
+  // Init on page load
+  initContactForms();
+
+  // Also init on Astro page transitions
+  document.addEventListener('astro:page-load', initContactForms);
+</script>

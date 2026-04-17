@@ -1,0 +1,114 @@
+---
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { SITE } from "../lib/constants";
+import { CATEGORIES_TOP, CATEGORIES_BOTTOM } from "../lib/categories";
+
+export const prerender = true;
+
+const title = "Dr. Nandi Wijay | Plastic Surgeon Houston";
+const description = "Dr. Nandi Wijay is a plastic surgeon at The Oaks Plastic Surgery in Houston, TX specializing in tummy tucks, breast augmentation, and hair restoration.";
+const canonical = "https://theoaksplasticsurgery.com/nandi-wijay-houston";
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={canonical}
+  headerTitle=""
+  headerImage="/img/header-contact-us.png"
+  headerMarginBottom={0}
+>
+  <!-- Bio Intro Section -->
+  <section class="bio-intro">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 mx-auto">
+          <div class="row">
+            <div class="col-md-6 text-center image-block">
+              <img src="/img/nandi-transparent.png" alt="Dr. Nandi Wijay" class="main img-fluid" />
+            </div>
+            <div class="col-md-6 content-block">
+              <h1>Dr. Nandi Wijay</h1>
+              <p class="sub-text">Division Chief of Plastic Surgery, River Oaks Hospital</p>
+              <p>A Houston native, Dr. Nandi Wijay specializes in cosmetic surgery, including tummy tucks, breast augmentation, and hair restoration. His training at UTMB Health and Houston's top medical centers shaped his expertise in advanced surgical techniques. Patients appreciate his compassionate approach and commitment to safety, personalization, and lasting results.</p>
+              <div class="social-links">
+                <span>Follow me on:</span>
+                <a href="https://www.instagram.com/drwijay/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/drwijay" target="_blank"><i class="fab fa-facebook"></i></a>
+              </div>
+              <a class="btn btn-primary btn-main" href="/contact-us">Schedule A Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After Gallery — will be powered by D1 in Step 6 -->
+
+  <!-- Testimonials — will be powered by D1 reviews -->
+
+  <!-- Videos Section -->
+  <section class="home-about">
+    <div class="container">
+      <div class="row">
+        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+          <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="text-center py-4">
+        <a href="https://www.youtube.com/playlist?list=PL-GKFU1ibgS0WXxP8zFack1peultV4rC-" target="_blank" class="btn btn-primary btn-main">View Dr. Wijay's Videos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="text-section pb-240">
+    <div class="container">
+      <div class="row">
+        <h2 class="wow fadeInUp center text-center">About Dr. Nandi Wijay</h2>
+      </div>
+    </div>
+    <div data-jarallax-element="-150" class="text-section-box"></div>
+    <div class="container">
+      <div class="row text-row">
+        <div class="col-lg-6">
+          <div class="text-section-block">
+            <p>Dr. Nandi Wijay, also a native of Houston, Texas, grew up in Clear Lake until he moved to Austin to attend the University of Texas. As the son of an engineer and businessman who specialized in medical devices and patents, he found a passion for medical innovation and creativity, which led him to a career in plastic surgery. After college, he returned to the Houston area to complete his medical education and plastic surgery training. From the beginning of his career in plastic surgery, he has collaborated and been mentored by some of the best plastic surgeons in the country who specialize in facial aesthetic surgery and other cosmetic surgery procedures.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 pt-lg-5">
+          <div class="text-section-block">
+            <p>He has a special interest in facial aesthetics, hair restoration, and male breast reduction surgery (gynecomastia), as well as female breast reconstruction and breast reduction. He and his wife, Dr. Danielle Andry, also a co-founder of The Oaks Plastic Surgery, continue to reside in Houston, Texas with their daughter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing tool — will be implemented in Step 8 -->
+
+  <!-- Q&A section — will be powered by D1 forum data -->
+
+  <!-- Blog posts — will be powered by content collections -->
+
+  <!-- Category Grids -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_BOTTOM} />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,85 @@
+---
+// About page — The Oaks Plastic Surgery
+// Ported from: /oaks_site/about.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import { SITE } from "../lib/constants";
+---
+
+<Base
+  title="Meet Our Plastic Surgeons | The Oaks Plastic Surgery"
+  description="Meet the board-certified plastic surgeons at The Oaks Plastic Surgery in Houston, Texas."
+  headerTitle="MEET OUR PLASTIC SURGEONS"
+  headerImage="/img/header-contact-us.png"
+  headerMarginBottom={120}
+  canonical="https://theoaksplasticsurgery.com/about"
+>
+  <!-- Intro Section -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <p style="padding-top: 110px" class="lead text-center wow fadeInUp">
+            The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom trained and and now practice in Houston, Texas. Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of the line care with a focus on safety, patient comfort, and meticulous attention to detail. The Oaks Plastic Surgery wants to help you look and feel like the best you!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Info: Dr. Danielle Andry -->
+  <section class="doctor-info-block mt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="text-center img-block">
+              <img src="/img/dani-transparent.png" alt="Dr. Danielle Andry" class="img-fluid" />
+            </div>
+            <div class="content-block">
+              <h2>Dr. Danielle Andry</h2>
+              <p class="sub-text">Board-Certified Plastic Surgeon</p>
+              <p>
+                Dr. Danielle Andry, one of the few female partners of a plastic surgery group practice in Houston, Texas, is a native of Baton Rouge, Louisiana and attended Louisiana State University. It was in medical school where she first became a Texan at the University of Texas at Southwestern in Dallas, Texas. She was then brought south to Houston to live with her husband, Dr. Nandi Wijay, another founding member of The Oaks Plastic Surgery. Being a mother herself and a strong women's advocate, she has a special interest in Mommy Makeover, including breast lifts (mastopexy), breast augmentation, liposuction and tummy tuck (abdominoplasty), as well as vaginal rejuvenation procedures, breast reduction, and breast reconstruction after breast cancer.
+              </p>
+            </div>
+            <div class="links">
+              <a href="/drdanielleandry" class="btn btn-primary btn-main">Learn More</a>
+              <a href="/drdanielleandry#gallery" class="btn btn-primary btn-main">View Gallery</a>
+              <a href="/contact-us" class="btn btn-primary btn-main">Schedule Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Info: Dr. Nandi Wijay -->
+  <section class="doctor-info-block doctor-info-block--flipped" style="margin-top: 30px;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="row">
+            <div class="content-block">
+              <h2>Dr. Nandi Wijay</h2>
+              <p class="sub-text">Division Chief of Plastic Surgery, River Oaks Hospital</p>
+              <p>
+                Dr. Nandi Wijay, also a native of Houston, Texas, grew up in Clear Lake until he moved to Austin to attend the University of Texas. As the son of an engineer and businessman who specialized in medical devices and patents, he found a passion for medical innovation and creativity, which led him to a career in plastic surgery. After college, he returned to the Houston area to complete his medical education and plastic surgery training. From the beginning of his career in plastic surgery, he has collaborated and been mentored by some of the best plastic surgeons in the country who specialize in facial aesthetic surgery and other cosmetic surgery procedures. He has a special interest in facial aesthetics, hair restoration, and male breast reduction surgery (gynecomastia), as well as female breast reconstruction and breast reduction. He and his wife, Dr. Danielle Andry, also a co-founder of The Oaks Plastic Surgery, continue to reside in Houston, Texas with their daughter.
+              </p>
+            </div>
+            <div class="links">
+              <a href="/nandi-wijay-houston" class="btn btn-primary btn-main">Learn More</a>
+              <a href="/nandi-wijay-houston#gallery" class="btn btn-primary btn-main">View Gallery</a>
+              <a href="/contact-us" class="btn btn-primary btn-main">Schedule Now</a>
+            </div>
+            <div class="text-center img-block">
+              <img src="/img/nandi-transparent.png" alt="Dr. Nandi Wijay" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>

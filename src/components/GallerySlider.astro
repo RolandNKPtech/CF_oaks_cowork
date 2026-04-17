@@ -1,0 +1,188 @@
+---
+/**
+ * Before/After Gallery Slider — fetches cases from /api/gallery
+ * and renders a Flickity carousel with before/after image pairs.
+ *
+ * Props:
+ *   service  — filter by service name (e.g. "Breast Augmentation Houston")
+ *   doctor   — filter by doctor name
+ *   limit    — max cases to show (default 12)
+ *   title    — section heading (default "Before & After Gallery")
+ */
+
+interface Props {
+  service?: string;
+  doctor?: string;
+  limit?: number;
+  title?: string;
+}
+
+const {
+  service = "",
+  doctor = "",
+  limit = 12,
+  title = "Before & After Gallery",
+} = Astro.props;
+
+const queryParams = new URLSearchParams();
+if (service) queryParams.set("service", service);
+if (doctor) queryParams.set("doctor", doctor);
+queryParams.set("limit", String(limit));
+const apiUrl = `/api/gallery?${queryParams.toString()}`;
+---
+
+<section class="gallery-slider-section" data-api-url={apiUrl}>
+  <div class="container">
+    <h2 class="text-center text-h-mort wow fadeIn pb-4" style="font-size: 36px">{title}</h2>
+    <div class="gallery-slider" id={`gallery-${service.replace(/\s+/g, '-').toLowerCase() || 'all'}`}>
+      <div class="gallery-loading">Loading gallery...</div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="/cosmetic-surgery-houston" class="btn btn-primary" style="background:#333;border:none;padding:10px 30px;">
+        View Full Gallery
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-slider-section {
+    padding: 40px 0 60px;
+  }
+  .gallery-loading {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 0.875rem;
+  }
+  .gallery-case {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .gallery-case-images {
+    display: flex;
+    gap: 8px;
+  }
+  .gallery-case-images img {
+    width: 50%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+  }
+  .gallery-case-label {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+  }
+  .gallery-case-info {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 0.8125rem;
+    color: #555;
+  }
+  .gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .gallery-nav button {
+    background: #333;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: background 0.15s;
+  }
+  .gallery-nav button:hover { background: #555; }
+  .gallery-counter {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: #888;
+  }
+</style>
+
+<script>
+  // Client-side gallery loader
+  document.querySelectorAll('.gallery-slider-section').forEach(async (section) => {
+    const apiUrl = section.getAttribute('data-api-url');
+    if (!apiUrl) return;
+
+    const container = section.querySelector('.gallery-slider') as HTMLElement;
+    if (!container) return;
+
+    try {
+      const res = await fetch(apiUrl);
+      if (!res.ok) throw new Error(`Gallery API ${res.status}`);
+      const data = await res.json();
+
+      if (!data.cases || data.cases.length === 0) {
+        container.innerHTML = '<div class="gallery-loading">No gallery cases available.</div>';
+        return;
+      }
+
+      let currentIndex = 0;
+
+      function renderCase(index: number) {
+        const c = data.cases[index];
+        let images: any[] = [];
+        try {
+          images = typeof c.images === 'string' ? JSON.parse(c.images) : (c.images || []);
+        } catch { images = []; }
+
+        if (images.length === 0) {
+          container.innerHTML = '<div class="gallery-loading">No images available for this case.</div>';
+          return;
+        }
+
+        const pair = images[0]; // First before/after pair
+        const beforeImg = pair.before || '';
+        const afterImg = pair.after || '';
+
+        container.innerHTML = `
+          <div class="gallery-case">
+            <div class="gallery-case-images">
+              <img src="${beforeImg}" alt="Before" loading="lazy" />
+              <img src="${afterImg}" alt="After" loading="lazy" />
+            </div>
+            <div class="gallery-case-label">
+              <span>Before</span>
+              <span>After</span>
+            </div>
+            ${c.display_service ? `<div class="gallery-case-info">${c.display_service}</div>` : ''}
+          </div>
+          <div class="gallery-nav">
+            <button class="gallery-prev" aria-label="Previous">&larr;</button>
+            <button class="gallery-next" aria-label="Next">&rarr;</button>
+          </div>
+          <div class="gallery-counter">${index + 1} of ${data.cases.length}</div>
+        `;
+
+        container.querySelector('.gallery-prev')?.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + data.cases.length) % data.cases.length;
+          renderCase(currentIndex);
+        });
+        container.querySelector('.gallery-next')?.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % data.cases.length;
+          renderCase(currentIndex);
+        });
+      }
+
+      renderCase(0);
+    } catch (err) {
+      container.innerHTML = '<div class="gallery-loading">Gallery unavailable.</div>';
+      console.error('Gallery load error:', err);
+    }
+  });
+</script>

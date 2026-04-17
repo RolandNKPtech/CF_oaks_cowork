@@ -1,0 +1,23 @@
+---
+// Homepage carousel header — from includes/home/header.php
+import Nav from "./Nav.astro";
+---
+
+<header>
+  <Nav />
+  <!--Carousel Wrapper-->
+  <div id="header-carousel" class="carousel slide white-text" data-ride="carousel" data-interval="5000">
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item text-center active">
+        <div id="hs1" class="carousel-bg">
+          <div class="container">
+            <h1>Start your journey</h1>
+            <a class="btn btn-main btn-primary my-2 consult-btn pulse animated" href="/tops-gallery/">Photo Gallery</a><br>
+            <a class="btn btn-main btn-primary" href="/contact-us">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

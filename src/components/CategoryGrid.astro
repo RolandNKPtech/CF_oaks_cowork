@@ -1,0 +1,70 @@
+---
+// Category grid cards — from includes/components/category.php + category-4.php / category-3.php
+// Renders procedure category cards with sub-links and overlay menus
+
+interface CategoryItem {
+  href: string;
+  text: string;
+}
+
+interface Category {
+  colClass: string;
+  imgUrl: string;
+  label: string;
+  items: CategoryItem[];
+}
+
+interface Props {
+  categories: Category[];
+}
+
+const { categories } = Astro.props;
+
+function slugify(text: string): string {
+  return text.replace(/\s+/g, '-').replace(/\//g, '');
+}
+---
+
+{categories.map((cat) => {
+  const catId = `Cat-${slugify(cat.label)}`;
+  return (
+    <div class={`col-${cat.colClass} no-padding`}>
+      <div
+        class="category"
+        style={`background: url('${cat.imgUrl}') no-repeat center center; background-size: cover;`}
+      >
+        <div class="category-label">
+          <span class="wow fadeIn category-label-text" onclick={`showoverlay('${catId}')`}>
+            <a>{cat.label}</a>
+            <span class="d-inline d-lg-none fas fa-plus p-0 px-2"></span>
+          </span>
+          {cat.items.length > 0 && (
+            <span class={`sub-category collapse c${cat.items.length}`}>
+              {cat.items.map((s) => (
+                <a href={s.href === '#' ? '#' : s.href.replace('.php', '')} class={s.href === '#' ? 'btn disabled' : undefined}>
+                  {s.text}
+                </a>
+              ))}
+            </span>
+          )}
+        </div>
+      </div>
+      <div class="overlay instapaper_ignore" id={catId}>
+        <div class="row">
+          <div class="col-md-4">
+            <a class="btn btn-menu text-left" onclick={`hideoverlay('${catId}')`}>CLOSE</a>
+          </div>
+        </div>
+        {cat.items.length > 0 && (
+          <span class="sub-category">
+            {cat.items.map((s) => (
+              <a href={s.href === '#' ? '#' : s.href.replace('.php', '')} class={s.href === '#' ? 'btn disabled' : undefined}>
+                {s.text}
+              </a>
+            ))}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+})}

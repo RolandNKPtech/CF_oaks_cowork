@@ -1,0 +1,491 @@
+---
+// Liposuction Surgery Houston
+// Ported from: liposuction-houston.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import GallerySlider from "../components/GallerySlider.astro";
+import ForumCarousel from "../components/ForumCarousel.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Liposuction Surgery Houston | The Oaks Plastic Surgery"
+  description="Liposuction Surgery Houston at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Liposuction Surgery Houston"
+  headerImage="/img/lipo-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/liposuction-houston"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">Which body area concern you the most!</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid">
+                                                <label>
+                                                    <input type="checkbox" value="Stomach" name="consult[option_one][]" />
+                                                    <span class="text">Stomach</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Hips" name="consult[option_one][]" />
+                                                    <span class="text">Hips</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Back " name="consult[option_one][]" />
+                                                    <span class="text">Back</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Thighs" name="consult[option_one][]" />
+                                                    <span class="text">Thighs</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Butt" name="consult[option_one][]" />
+                                                    <span class="text">Butt</span>
+                                                </label>
+                                                <input type="text" hidden value="Body areas of concern" name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Would you like more?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid">
+                                                <label>
+                                                    <input type="radio" value="Butt Projection" name="consult[option_two][]" />
+                                                    <span class="text">Butt Projection</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Hip Projection" name="consult[option_two][]" />
+                                                    <span class="text">Hip Projection</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Both" name="consult[option_two][]" />
+                                                    <span class="text">Both</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Neither" name="consult[option_two][]" />
+                                                    <span class="text">Neither</span>
+                                                </label>
+                                                <input type="text" hidden value="Would you like more?" name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book Liposuction and/or Brazilian Butt Lift Consult!</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input" placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-60 mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0">
+                            <div class="plash-tags-elements">
+                                <a href="#section-lipo" class="plash-tags-el">Liposuction PROCEDURE</a>
+                                <a href="#section-results" class="plash-tags-el">Liposuction RESULTS</a>
+                                <a href="#section-lipo-areas" class="plash-tags-el">Lipo areas</a>
+                                <a href="#section-why-lipo" class="plash-tags-el">Why get lipo?</a>
+                                <a href="#section-video" class="plash-tags-el">VIDEO GALLERY</a>
+                                <a href="#section-consultation-expect" class="plash-tags-el">CONSULTATION: WHAT TO EXPECT</a>
+                                <a href="#section-day-of-expect" class="plash-tags-el">DAY OF: WHAT TO EXPECT</a>
+                                <a href="#section-recovery-expect" class="plash-tags-el">RECOVERY: WHAT TO EXPECT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="section-results" class="my-0">
+      <GallerySlider service="Liposuction Houston" title="Liposuction Results" />
+    </section>
+            
+            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+            <section class="mt-60 mb-0" id="section-lipo">
+                <div class="container-fluid">
+                    <div class="row text-row">
+                        <div class="col-lg-10 offset-lg-1 no-padding ">
+
+
+                            <div class="plash-breast">
+                                <div class="breast-title">What is Liposuction</div>
+                                <div class="breast-text">
+                                    <p>Liposuction surgically removes fat cells from the body to create a slimmer, sleeker contour. Liposuction can be used for generalized fat removal to decrease your overall waistline, hips, and thighs, or can be used to target specific problem areas that are resistant to diet and exercise.</p>
+                                    <p>Dr. Danielle Andry and Dr. Nandi Wijay, the plastic surgeons at The Oaks Plastic Surgery (TOPS) in Houston, Texas perform safe and effective liposuction techniques to loosen, emulsify, and remove unwanted fat deposits. The procedure begins several small incisions in strategic areas to remove the fat precisely and efficiently. Your Houston plastic surgeon performing the liposuction procedure will then inject tumescent solution, which is a mixture of saline, a medication that decreases bleeding, and a local anesthetic to decrease postoperative pain. A cannula will then be used to break up the fat deposits for gentle removal. Once the fat has been effectively removed, the remaining fat cells are equalized to ensure excellent contour and symmetry.</p>
+                                </div>
+                                <div class="breast-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            
+            <section class="mb-0 pb-240" id="section-lipo-areas">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+            
+    
+            <section class="collapse-category">
+                <div class="container-fluid book-free-consultation with-bg">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <h2>Book A Consultation</h2>
+                            <p>
+                                Surgical liposuction should be performed by a fully-trained plastic surgeon who follows the utmost quality and safety standards to ensure a safe, effective result. Your plastic surgeon should pay meticulous attention to detail to make your result as smooth and symmetric as possible.
+                            </p>
+                            <div class="book-consultation-form">
+                                
+                                <a href="/contact-us" class="d-inline-block d-lg-none btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                
+            </section>
+            
+            
+            <section class="text-section pb-240" id="section-why-lipo">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="wow fadeInUp center text-center">Why you want Liposuction in Houston?</h2>
+                    </div>
+                </div>
+                <div data-jarallax-element="-150" class="text-section-box"></div>
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6">
+                            <div class="text-section-block">
+                                <h3>Abs</h3>
+                                <p>
+                                    Whether you are a woman who wants to trim down her waist and create and hourglass figure or a man who wants more a more chiseled and defined six-pack, abdominal liposuction can help create the look you want.  The TOPS plastic surgeons  not only offer the more traditional surgical liposuction, but also perform Ab Etching to create the definition, contour, and illusion of six-pack abs.  Dr. Danielle Andry and Dr. Nandi Wijay all trained with some of the pioneers in ab etching liposuction and use techniques for a natural result.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Hips</h3>
+                                <p>
+                                    If you have excess fat in your hips/flanks/love handles, liposuction can help sculpt this area for a narrower, more contoured look.  This can really help cinch in your waist and give you that hourglass look.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Thighs</h3>
+                                <p>
+                                    The plastic surgeons at The Oaks Plastic Surgery can perform liposuction of both the inner thighs and outer thighs as well as liposuction of the back or posterior thigh or “banana roll”.  Liposuction of the inner thighs can help give you a thigh gap and more contoured, muscular appearing legs.  Liposuction of the outer thighs can help continue that hourglass silhouette achieved with liposuction of the abdomen and hips.
+                                </p>
+                            </div>
+
+                            <div class="text-section-block">
+                                <h3>Arms</h3>
+                                <p>
+                                    Liposuction of the arms is commonly performed to decrease fat from the arm area.  The TOPS plastic surgeons also perform liposuction routinely as part of a brachioplasty or arm lift.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Pecs</h3>
+                                <p class="align-content-end">
+                                    Pec Etching is a procedure that is becoming more and more common.  This procedure uses a combination of liposuction and, sometimes, fat grafting or gland excision to improve the definition and contour of the pec giving men a chiseled appearance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-lg-5">
+                            <div class="text-section-block">
+                                <h3>Knee</h3>
+                                <p class="align-content-end">
+                                    Surprising to many people, the plastic surgeons at The Oaks Plastic Surgery commonly perform liposuction to the knees in our Houston patients to help smooth the lower leg contour and help the fat bulge above the knee that commonly occurs with weight gain and age.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Calves</h3>
+                                <p class="align-content-end">
+                                    Liposuction of the calves can get rid of “cankles” and help create a more defined, muscular look of the lower leg.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Lower back</h3>
+                                <p class="align-content-end">
+                                    The plastic surgeons at The Oaks Plastic Surgery can perform aggressive liposuction of the back to help improve back fat and back rolls.  This is critical to creating a smooth contour and can be a complete game changer for some of our patients.  The back is truly one of the areas of liposuction our plastic surgeons see the most dramatic results.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Neck</h3>
+                                <p class="align-content-end">
+                                    Liposuction of the neck can be a powerful procedure that really sculpts the jaw and neckline giving a better angle between the neck and the chin.  This procedure can be performed in the operating room as well as in the clinic by our TOP S plastic surgeons.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Upper Back/Bra line</h3>
+                                <p>
+                                    Upper back or bra line liposuction is often essential to completing the look up lower back or 360 circumferential liposuction.  This can help remove upper back rolls and smooth back contour.  The plastic surgeons at The Oaks Plastic Surgeon commonly recommend upper back or bra line liposuction as an adjunct to breast reduction to help improve the contour and transition from the back to the breast area.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+                            <a href="tel:"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cta-service" id="section-consultation-expect">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 no-padding service-right-cta">
+                            <div data-jarallax-element="-100">
+                                <h2 class="text-h-mort">
+                                    What can you expect at your Initial consultation at The Oaks Plastic Surgery in Houston, Texas?
+                                </h2>
+                                <div>
+                                    <span>
+                                        If you are considering liposuction in Houston, Texas, an appointment can be made with Dr. Danielle Andry or Dr. Nandi Wijay. You can expect the initial consultation to last an hour or more. In your consultation, your surgeon will:
+                                    </span>
+                                </div>
+                                <a href="/contact-us" class="performed-click btn-primary mt-3 d-inline-block">Book A Consult</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 no-padding service-left-cta">
+                            <ul data-jarallax-element="-100">
+                                <li>
+                                    Listen to your specific complaints and goals
+                                </li>
+                                <li>
+                                    Perform a thorough examination, focusing on your individual anatomy
+                                </li>
+                                <li>
+                                    Discuss recommendations regarding surgical or nonsurgical techniques that may help you achieve your goals
+                                </li>
+                                <li>
+                                    If surgery is the right option for you, your surgeon will discuss details of the surgical procedures that are offered and which approach is right for you
+                                </li>
+                                <li>
+                                    If liposuction is the right option for you, your TOPS plastic surgeon will discuss the normal operative and post-operative course and answer any questions you may have.
+                                </li>
+                                <li>
+                                    Preoperative photographs will be taken
+                                </li>
+                                <li>
+                                    The risks and benefits of surgery or procedure will be thoroughly outlined for you
+                                </li>
+                                <li>
+                                    You will be given ample opportunity to ask questions from both our TOPS physicians and staff regarding liposuction and any other surgical or nonsurgical procedures you may be interested in
+                                </li>
+                                <li>
+                                    You will be sent home with a packet of information regarding the liposuction including a detailed consent form and instructions for before and after your liposuction procedure in Houston, Texas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="text-section pb-240">
+                <div data-jarallax-element="-140" class="text-section-box"></div>
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6" id="section-day-of-expect">
+                            <div class="text-section-block">
+                                <h3>What you can expect on the day of your liposuction procedure in Houston Texas</h3>
+                                <p class="align-content-end">
+                                    If you are undergoing liposuction under general anesthesia, on the day of your liposuction procedure in Houston, Texas, your TOPS plastic surgeon will meet you in the preoperative area to go over any last minute questions or concerns you may have.  Your plastic surgeon may make some preoperative markings and will perform extensive checks with careful attention to detail, ensuring high quality care and safety.  If you are undergoing general anesthesia, you will meet the anesthesiologist and their team, as well as the members of our plastics surgery operative team.
+                                </p>
+                                <p>During your cosmetic surgery, our Houston plastic surgeons pay meticulous attention to detail and work as a team to ensure a great result with a focus on safety and quality.  Your family will be updated of your status periodically and will be able to talk with the plastic surgeon one-on-one after your chin augmentation procedure is completed.  The timing of the liposuction procedure varies greatly depend on the areas and extent of liposuction being performed.  Please keep in mind that the cosmetic procedure may take a little longer for the surgical set up and for our patients to fully recover in the post operative care unit. </p>
+                                <p>If liposuction is being performed in the office under local anesthesia, you will be met by one of the members of our Houston Museum District TOPS team.  You will be brought back to the procedure room and made comfortable prior to your liposuction procedure.  The plastic surgeon will then inject a numbing medication that will keep you comfortable throughout the procedure.  The area to be liposuctioned will then be prepped and the area and instruments will be kept sterile throughout the procedure.  Careful attention is taken to safety and the highest level of care, just as there would be in the operating room.  Liposuction under local anesthesia in our Houston office is limited to small areas that do not require aggressive liposuction.  </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" id="section-recovery-expect">
+                            <div class="text-section-block">
+                                <h3>What can you expect for recovery after liposuction</h3>
+                                <p>
+                                    After your liposuction procedure, you will have a dressing covering the small incisions used to liposuction the fat from the areas. It is normal for you to have some leftover fluid that drains from these areas onto the dressings and the liposuction dressings may require changing or reinforcing the night after your liposuction procedure. You will also be placed into a garment after liposuction surgery to help improve the contour and decrease bruising and swelling. Additionally special liposuction foam may be placed to decrease swelling and bruising and improve contour and definition. You will be advised to refrain from strenuous activity for 2-4 weeks during the healing process. The Oaks Plastic Surgeons expect some swelling and bruising for up to a few weeks after the procedure and mild swelling may remain for months after liposuction. If you are otherwise healthy and had less than 5 liters of liposuction performed, it is typically safe for you to go home the day of the procedure. If you underwent additional procedures or had greater than 5 liters of liposuction performed, your TOPS plastic surgeon may recommend that you stay overnight in the hospital or surgical facility.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+                            <a href="tel:"></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="text-section pb-240">
+                <div class="container">
+                    <div class="row">
+                        <h2 class="wow fadeInUp center text-center">What procedures are most often performed along with Liposuction?</h2>
+                    </div>
+                </div>
+                <div data-jarallax-element="-150" class="text-section-box"></div>
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6">
+                            <div class="text-section-block">
+                                <h3>Tummy Tuck/Abdominoplasty</h3>
+                                <p>
+                                    Combining aggressive liposuction of the back, flanks, and hips along with <a href="/houston-tummy-tucks">tummy tuck</a> (abdominoplasty) can give a dramatic 360 degree contouring result, often without the need for a circumferential body lift, which requires a large incision across the back. Liposuction smoothes out back rolls and bra line excess without big incisions, creating an hourglass look without scarring. The 360 liposuction and tummy tuck procedure also results in lower postoperative pain and an easier recovery than a circumferential body lift.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Brazilian Butt Lift</h3>
+                                <p>
+                                    Liposuction is commonly performed as part of a <a href="/butt-lift-houston">Brazilian Butt Lift</a>, which uses the fat harvested from liposuction to inject into the buttock area for a curvy, voluptuous contour.  When performed correctly, liposuction of the waist and back even further accentuates the curves of the hip and buttock area with a cinched in waist and hourglass aesthetic.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Breast Reduction and Breast Reconstruction</h3>
+                                <p>
+                                    After <a href="/breast-reduction-houston">breast reduction</a> or <a href="/breast-reconstruction-houston">breast reconstruction</a>, the volume of the breast is often decreased and attachments of the breast to the axillary or underarm area have been affected.  This often results in the fatty area under the axilla in the bra-line area to become more prominent and bothersome.  The plastic surgeons at The Oaks Plastic Surgery in Houston, Texas prefer to perform liposuction of this transition area to smooth the contour and improve the overall aesthetic and functional result.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pt-lg-5">
+                            <div class="text-section-block">
+                                <h3>Mommy Makeover</h3>
+                                <p class="align-content-end">
+                                    Let’s be honest, finding time to exercise and diet can be difficult when raising a family.  The TOPS plastic surgeons routinely perform liposuction as part of a Mommy Makeover to help in the areas most mommies have trouble with, like the abdomen, hips, and thighs.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Arm lift or Brachioplasty</h3>
+                                <p class="align-content-end">
+                                    Liposuction is commonly performed along with <a href="/arm-lift-houston">arm lift</a> to help with contouring and removal of some of the excess fat.
+                                </p>
+                            </div>
+                            <div class="text-section-block">
+                                <h3>Thigh Lift</h3>
+                                <p class="align-content-end">
+                                    The plastic surgeons at The Oaks Plastic Surgery also commonly use liposuction as part of a <a href="/thigh-lift-houston">thigh lift</a> to improve contour and help remove excess fat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section class="pb-240">
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                
+                    </div>
+            </section>
+            
+           
+            <section class="py-5">
+                    <div class="container-fluid">
+                    <h2 class="text-h-mort mb-5 text-center">Surgical Instructions</h2>
+                    
+                    </div>
+            </section>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+
+  <ForumCarousel service="Liposuction" title="Liposuction Q&A" />
+</Base>

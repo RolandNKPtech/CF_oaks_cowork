@@ -1,0 +1,32 @@
+---
+// Header variant with CTA button — from includes/header-with-cta.php
+// Used by procedure/service pages
+import Nav from "./Nav.astro";
+
+interface Props {
+  title: string;
+  bgImage: string;
+  marginBottom?: number;
+  buttonText?: string;
+  buttonLink?: string;
+  buttonOnClick?: string;
+}
+
+const { title, bgImage, marginBottom = 60, buttonText, buttonLink, buttonOnClick } = Astro.props;
+---
+
+<header style={`background: url(${bgImage}) no-repeat center center; background-size: cover;`}>
+  <Nav />
+  <div class="container title-container text-center">
+    <h1 style={`margin-bottom: ${marginBottom}px`} class="wow fadeInUp">{title}</h1>
+    {buttonLink && buttonText && (
+      <a
+        href={buttonLink}
+        class="btn btn-primary btn-main consult-btn"
+        onclick={buttonOnClick || undefined}
+      >
+        {buttonText}
+      </a>
+    )}
+  </div>
+</header>

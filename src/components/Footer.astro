@@ -1,0 +1,152 @@
+---
+import { SITE } from "../lib/constants";
+
+const currentYear = new Date().getFullYear();
+const currentPath = Astro.url.pathname;
+---
+
+<div class="cta text-center">
+  <div class="col-lg-8 offset-lg-2">
+    <p>The Oaks Plastic Surgery is your home for high-end, high-quality, luxury plastic surgery care in Houston, Texas</p>
+    <a href={`tel:${SITE.phone}`}>Call to schedule a consultation <br /> {SITE.phone}</a>
+  </div>
+</div>
+
+<footer class="text-center text-lg-left">
+  <div class="row">
+    <div class="col-lg-9">
+      <img class="footer-logo" src="/img/footer-logo.png" alt="The Oaks Plastic Surgery" />
+      <div class="social-icons">
+        <a href={SITE.social.facebook} rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href={SITE.social.instagram} rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href={SITE.social.youtube} rel="nofollow" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="footer-copyright d-none d-lg-block">
+        <p>&copy; {currentYear} The Oaks Plastic Surgery</p>
+        <p><a href="/privacy">Privacy & Disclaimer</a></p>
+        <a href="https://www.regexseo.com/" target="_blank" rel={currentPath === "/" ? undefined : "nofollow"}>
+          <img src="/img/regex-logo.png" alt="plastic surgery seo" />
+        </a>
+        <p class="footer-disclaimer">Disclaimer: All photos not contained within the gallery page are models.</p>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <p class="info">
+        <br />
+        CONTACT US TODAY<br />
+        <a href={SITE.address.mapsUrl} target="_blank" rel="nofollow" class="footer-link">
+          {SITE.address.street}<br />
+          {SITE.address.city}, {SITE.address.state} {SITE.address.zip}<br />
+        </a>
+        <br /><br />
+        Call us: <a href={`tel:${SITE.phone}`} class="footer-link">{SITE.phone}</a><br />
+      </p>
+      <div class="google-reviews">
+        <div class="google-reviews-rating-wrapper google-reviews-separator">
+          <span class="google-reviews-rating">4.8<sup>/ 5</sup></span>
+        </div>
+        <div class="google-reviews-stars-wrapper">
+          <div class="google-reviews-stars">
+            <i class="google-review-star fas fa-star"></i>
+            <i class="google-review-star fas fa-star"></i>
+            <i class="google-review-star fas fa-star"></i>
+            <i class="google-review-star fas fa-star"></i>
+            <i class="google-review-star fas fa-star"></i>
+          </div>
+          <div class="google-reviews-count">(118 reviews)</div>
+        </div>
+      </div>
+      <div class="footer-copyright d-lg-none">
+        <p>&copy; {currentYear} The Oaks Plastic Surgery</p>
+        <a href="https://www.regexseo.com/" target="_blank" rel={currentPath === "/" ? undefined : "nofollow"}>Website by RegexSEO</a>
+        <p class="footer-disclaimer">Disclaimer: All photos not contained within the gallery page are models.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '653093525077326');
+  fbq('init', '1505009299599782');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=653093525077326&ev=PageView&noscript=1" />
+</noscript>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123168195-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-123168195-1');
+  gtag('config', 'GTM-MH39RJXG');
+</script>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify([
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://theoaksplasticsurgery.com/",
+    "name": "The Oaks Plastic Surgery",
+    "alternateName": "TOPS",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2571 Kirby Dr",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77019",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "18",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.742658,
+      "longitude": -95.417803
+    },
+    "url": "https://theoaksplasticsurgery.com/",
+    "sameAs": [
+      "https://www.facebook.com/TheOaksPlasticSurgery/",
+      "https://www.linkedin.com/company/the-oaks-plastic-surgery/"
+    ],
+    "logo": "https://theoaksplasticsurgery.com/img/logo-schema.png",
+    "image": "https://theoaksplasticsurgery.com/img/logo-schema.png",
+    "telephone": "+18329007070",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+18329007070",
+      "contactType": "customer support",
+      "availableLanguage": ["English"]
+    }]
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "The Oaks Plastic Surgery",
+    "alternateName": "TOPS",
+    "url": "https://theoaksplasticsurgery.com/"
+  }
+])} />

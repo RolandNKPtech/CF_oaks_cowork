@@ -1,0 +1,357 @@
+---
+// Brazilian Butt Lift in Houston, Texas
+// Ported from: butt-lift-houston.php
+export const prerender = true;
+
+import Base from "../layouts/Base.astro";
+import CategoryGrid from "../components/CategoryGrid.astro";
+import { CATEGORIES_TOP } from "../lib/categories";
+---
+
+<Base
+  title="Brazilian Butt Lift in Houston, Texas | The Oaks Plastic Surgery"
+  description="Brazilian Butt Lift in Houston, Texas at The Oaks Plastic Surgery. Board-certified plastic surgeons offering personalized care."
+  headerTitle="Brazilian Butt Lift in Houston, Texas"
+  headerImage="/img/butt-lift-hero.jpg"
+  headerMarginBottom={60}
+  canonical="https://theoaksplasticsurgery.com/butt-lift-houston"
+>
+<section class="mb-0">
+                <div class="container w-new100">
+                    <div class="row text-row">
+                        <div class="col-lg-12 offset-lg-0 plr-60">
+                            <div class="plash-size">
+                                
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <strong>Success!</strong> The Oaks Plastic Surgery team will reach out to you shortly!
+                                    </div>
+                                
+                                    
+                                        <div class="alert alert-danger alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <strong>Error!</strong> Empty or Invalid reCaptcha
+                                        </div>
+                                    
+                                
+                                <div id="formCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <form class="carousel-inner" method="post" name="consult">
+                                        <div class="carousel-item active">
+                                            <div class="plash-size-title">Which body area concerns you the most?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid">
+                                                <label>
+                                                    <input type="checkbox" value="Stomach" name="consult[option_one][]" />
+                                                    <span class="text">Stomach</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Hips" name="consult[option_one][]" />
+                                                    <span class="text">Hips</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Back " name="consult[option_one][]" />
+                                                    <span class="text">Back</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Thighs" name="consult[option_one][]" />
+                                                    <span class="text">Thighs</span>
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="Butt" name="consult[option_one][]" />
+                                                    <span class="text">Butt</span>
+                                                </label>
+                                                <input type="text" hidden value="Body areas of concern" name="consult[option_one_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideOne(event,0)">Continue</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Would you like more?</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Butt Projection" name="consult[option_two][]" />
+                                                    <span class="text">Butt Projection</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Hip Projection" name="consult[option_two][]" />
+                                                    <span class="text">Hip Projection</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Both" name="consult[option_two][]" />
+                                                    <span class="text">Both</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Neither" name="consult[option_two][]" />
+                                                    <span class="text">Neither</span>
+                                                </label>
+                                                <input type="text" hidden value="Would you like more?" name="consult[option_two_title]" />
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideTwo(event,1)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="0">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Select a Surgeon</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements elements-grid four-columns">
+                                                <label>
+                                                    <input type="radio" value="Dr. Danielle Andry" name="consult[doctor]" />
+                                                    <span class="text">Dr. Danielle Andry</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="Dr. Nandi Wijay, MD" name="consult[doctor]" />
+                                                    <span class="text">Dr. Nandi Wijay, MD</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" value="No Preference" name="consult[doctor]" />
+                                                    <span class="text">No Preference</span>
+                                                </label>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click" onclick="validateSlideDoctor(event,2)">Continue</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="1">Previous</a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="plash-size-title">Book Liposuction and/or Brazilian Butt Lift Consult!</div>
+                                            <div class="plash-size-error"></div>
+                                            <div class="plash-size-elements">
+                                                <input type="text" name="consult[name]" class="input" placeholder="Enter Name" />
+                                                <input type="email" name="consult[email]" class="input" placeholder="Enter Email" />
+                                                <input type="tel" name="consult[phone]" class="input" placeholder="Enter Phone" />
+                                                <p>By clicking BOOK NOW, you agree to our <a href="/policy/hipaa" target="_blank">HIPAA Policy</a></p>
+                                            </div>
+                                            <div class="plash-size-click">
+                                                <a href="#" class="blue-click submit" onclick="validateSlideThree(event,3);">Book Now</a>
+                                                <a href="#" class="blue-click" data-target="#formCarousel" data-slide-to="2">Previous</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="mt-60 mb-0">
+                    <div class="container w-new100">
+                        <div class="row text-row">
+                            <div class="col-lg-12 offset-lg-0">
+                                <div class="plash-tags-elements">
+                                    <a href="#" class="plash-tags-el">butt lift PROCEDURE</a>
+                                    <a href="#" class="plash-tags-el">butt lift RESULTS</a>
+                                    <a href="#" class="plash-tags-el">VIDEO GALLERY</a>
+                                    <a href="#" class="plash-tags-el">CONSULTATION: WHAT TO EXPECT</a>
+                                    <a href="#" class="plash-tags-el">DAY OF: WHAT TO EXPECT</a>
+                                    <a href="#" class="plash-tags-el">RECOVERY: WHAT TO EXPECT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+
+            
+            
+            <section class="pricing-tool" id="pricing">
+                <!-- Script will replace this with pricing form -->
+                <img src="/img/loading.svg" class="loading" />
+            </section>
+            
+<!--            <section class="home-about" id="section-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-10 offset-lg-0 col-lg-12">
+                            <h2 class="text-center text-h-mort wow fadeIn pb-4 pt-lg-4" style="font-size: 36px">Videos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>-->
+
+            <section class="mt-60 mb-0" id="section-breast-aug">
+                <div class="container-fluid">
+                    <div class="row text-row">
+                        <div class="col-lg-10 offset-lg-1 no-padding ">
+                            <div class="plash-breast" style="background-image: url(/img/butt.jpg);">
+                                <div class="breast-title">What is a Brazilian Butt Lift?</div>
+                                <div class="breast-text">
+                                    It is a surgical procedure that harvests your own fat through liposuction techniques and transfers that fat to your buttock and hip area to create a curvy, hourglass look. Liposuction of the surrounding areas for fat harvest helps accentuate your waistline and lower back, creating an even better look. Brazilian Butt Lifts are performed under general anesthesia and most patients go home the same day.
+                                </div>
+                                <div class="breast-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+            <section class="collapse-category">
+                <div class="container-fluid book-free-consultation with-bg">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <h2>Book A Consultation</h2>
+                            <p>
+                                The Oaks Plastic Surgery was founded by Dr. Danielle Andry and Dr. Nandi Wijay, all of whom trained and now practice in Houston, Texas. Each plastic surgeon at The Oaks Plastic Surgery is committed to bringing their patients top of the line care with a focus on safety, patient comfort, and meticulous attention to detail. The Oaks Plastic Surgery wants to help you look and feel like the best you!
+                            </p>
+                            <div class="book-consultation-form">
+                                
+                                <a href="/contact-us" class="d-inline-block d-lg-none btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="container-fluid">
+                    
+                </div>
+            </section>
+
+
+
+            <section class="cta-service" id="section-consultation-expect">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 no-padding service-right-cta">
+                            <div data-jarallax-element="-100">
+                                <h2 class="text-h-mort">
+                                    What can you expect at your initial consultation for Brazilian Butt Lift?
+                                </h2>
+                                <span>
+                                    If you are interested in Brazilian Butt Lift or Buttock Augmentation in Houston, Texas, an appointment can be made with one of our Houston plastic surgeons, Dr. Danielle Andry and Dr. Nandi Wijay. You can expect the initial consultation to last an hour or more. In your consultation, your TOP S plastic surgeon will:
+                                </span>
+                                <div class="performed-clickbox">
+                                    <a class="breast-click" href="/contact-us">book a consult</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 no-padding service-left-cta">
+                            <ul data-jarallax-element="-100">
+                                <li>
+                                    Listen to your specific complaints and goals
+                                </li>
+                                <li>
+                                    Perform a thorough examination, focusing on your individual anatomy. Precise measurements and photographs will be taken.
+                                </li>
+                                <li>
+                                    Depending on your goals, your plastic surgeon will discuss details of the surgical procedures that are offered and which approach is right for you. Details regarding scars and technique will be outlined for you.
+                                </li>
+                                <li>
+                                    The risks and benefits of Brazilian Butt Lift will be thoroughly outlined
+                                </li>
+                                <li>
+                                    You will be given ample opportunity to ask questions from both your plastic surgeon and our plastic surgery staff regarding buttock augmentation
+                                </li>
+                                <li>
+                                    You will be sent home with a packet of information regarding Brazilian Butt Lift including a detailed consent form and instructions for before and after your
+                                    Buttock Augmentation surgery in Houston, Texas.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="text-section text-bg-grey mb-0">
+                <div class="container">
+                    <div class="row text-row">
+                        <div class="col-lg-6 " id="section-day-of-expect">
+                            <div class="text-section-block">
+                                <h3>What to Expect at Your Initial Consultation for Breast Implant Surgery</h3>
+                                <p class="align-content-end">At your initial consultation, your surgeon will:
+                                </p>
+                                <ul>
+                                    <li>Gain a thorough understanding of your goals and desires for surgery</li>
+                                    <li>Perform an anatomical exam</li>
+                                    <li>Discuss the risks, benefits, and options for breast implant surgery. Together, you’ll determine what types of incision site, placement, implant, and size are right for you.</li>
+                                    <li>Give you an information packet about your procedure and recovery</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 " id="section-recovery-expect">
+                            <div class="text-section-block">
+                                <h3>What to Expect from Recovery after Breast Implants at TOPS Houston </h3>
+                                <p class="align-content-end">
+                                    Thanks to variety of pain management techniques, TOPS Houston breast implant patients are able to recover with little pain and minimal narcotic use. As long as you follow post-operative instructions carefully, you can generally expect to return to work in one to two weeks and return to moderate and gentle exercise in four to six weeks.
+                                </p>
+                                <p>
+                                    Your TOPS Houston surgeon will contact you after surgery to make sure you are recovering normally and answer your questions and concerns.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="call-shedule">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            Call To Schedule A Consultation Today
+                            <!--                            <a href="tel:--><!--">--><!--</a>-->
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="pb-240">
+                <div class="container-fluid">
+
+                    <div class="row" style="max-width: 1300px;margin: auto;">
+                        
+                
+                    </div>
+            </section>
+
+
+
+            <section class="py-5">
+                <div class="container-fluid">
+                <h2 class="text-h-mort mb-5 text-center">Surgical Instructions</h2>
+                
+                </div>
+            </section>
+
+            <!-- <section class="pb-240">
+                <div class="container-fluid">
+                    
+                </div>
+            </section> -->
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </section>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <CategoryGrid categories={CATEGORIES_TOP} />
+      </div>
+    </div>
+  </section>
+</Base>

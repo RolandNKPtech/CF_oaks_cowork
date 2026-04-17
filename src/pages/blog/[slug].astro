@@ -1,0 +1,133 @@
+---
+/**
+ * Individual blog post page — renders content from the blog collection.
+ */
+import Base from "../../layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const siteUrl = "https://theoaksplasticsurgery.com";
+const blogPostJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "datePublished": post.data.pubDate.toISOString(),
+  ...(post.data.updatedDate && { "dateModified": post.data.updatedDate.toISOString() }),
+  "author": {
+    "@type": "Organization",
+    "name": post.data.author || "The Oaks Plastic Surgery",
+    "url": siteUrl,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Oaks Plastic Surgery",
+    "logo": { "@type": "ImageObject", "url": `${siteUrl}/img/logo-schema.png` },
+  },
+  "mainEntityOfPage": `${siteUrl}/blog/${post.data.slug}`,
+  ...(post.data.heroImage && { "image": post.data.heroImage.startsWith('http') ? post.data.heroImage : `${siteUrl}${post.data.heroImage}` }),
+  ...(post.data.description && { "description": post.data.description }),
+};
+---
+
+<Base
+  title={`${post.data.title} — The Oaks Plastic Surgery Blog`}
+  description={post.data.description || `Read about ${post.data.title} from The Oaks Plastic Surgery in Houston, TX.`}
+  headerTitle={post.data.title}
+  headerImage={post.data.heroImage || "/images/banners/about-bg.jpg"}
+  ogType="article"
+  jsonLd={blogPostJsonLd}
+  publishedTime={post.data.pubDate.toISOString()}
+  modifiedTime={post.data.updatedDate?.toISOString()}
+  articleAuthor={post.data.author}
+>
+  <article class="blog-post" style="padding: 60px 15px; max-width: 760px; margin: 0 auto;">
+    <div class="post-meta">
+      <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+      {post.data.author && <span class="author">by {post.data.author}</span>}
+    </div>
+
+    <div class="post-content">
+      <Content />
+    </div>
+
+    <div class="post-footer">
+      <a href="/blog">&larr; Back to Blog</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .post-meta {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #888;
+    font-size: 0.875rem;
+  }
+  .post-meta .author {
+    margin-left: 0.5rem;
+  }
+  .post-content {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: #333;
+  }
+  .post-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+  .post-content :global(h2) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+  }
+  .post-content :global(h3) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+  }
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  .post-content :global(blockquote) {
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #555;
+    font-style: italic;
+  }
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  .post-footer a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .post-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
