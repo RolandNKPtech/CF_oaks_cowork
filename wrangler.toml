@@ -10,18 +10,18 @@ not_found_handling = "404-page"
 # --- D1 Database ---
 [[d1_databases]]
 binding = "DB"
-database_name = "oaks-db"
-database_id = "TO_BE_CREATED"
+database_name = "oaks-test-db"
+database_id = "824a3b0d-382a-4dfe-a6da-8aac1e65950d"
 
 # --- R2 Object Storage (gallery images, media) ---
 [[r2_buckets]]
 binding = "MEDIA"
-bucket_name = "oaks-media"
+bucket_name = "oaks-test-media"
 
 # --- KV Namespace (sessions, cache) ---
 [[kv_namespaces]]
 binding = "SESSIONS"
-id = "TO_BE_CREATED"
+id = "7f07e42e953c4d228850bd7af84f1e7a"
 
 [observability]
 enabled = true
